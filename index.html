@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapel Hill Post No. 6 — American Legion</title>
+  <meta name="description" content="Chapel Hill Post No. 6, American Legion — serving veterans and their families in Chapel Hill, NC since 1919. Join us, volunteer, or rent our hall." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── TOKENS ────────────────────────────────────────────── */
+    :root {
+      --navy:    #002868;
+      --navy-dk: #001845;
+      --red:     #BF0A30;
+      --red-dk:  #8B0000;
+      --gold:    #C8A84B;
+      --gold-lt: #F2E0A0;
+      --cream:   #FDF8F0;
+      --gray:    #F4F5F7;
+      --text:    #1A1A2E;
+      --muted:   #5A5A72;
+      --white:   #FFFFFF;
+      --shadow:  0 4px 24px rgba(0,40,104,.12);
+      --radius:  8px;
+      --trans:   .25s ease;
+    }
+
+    /* ── RESET ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.65;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ── UTILITIES ──────────────────────────────────────────── */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 80px 0; }
+    .section-sm { padding: 56px 0; }
+    .label {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    h2.section-title {
+      font-family: 'Merriweather', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 900;
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 640px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      font-weight: 700;
+      font-size: .95rem;
+      cursor: pointer;
+      transition: var(--trans);
+      border: 2px solid transparent;
+    }
+    .btn-primary {
+      background: var(--red);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: var(--red-dk); }
+    .btn-navy {
+      background: var(--navy);
+      color: var(--white);
+    }
+    .btn-navy:hover { background: var(--navy-dk); }
+    .btn-outline {
+      background: transparent;
+      border-color: var(--white);
+      color: var(--white);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,.12); }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy-dk);
+    }
+    .btn-gold:hover { background: #b89230; }
+
+    /* fade-up on scroll */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: none; }
+
+    /* ── HEADER ─────────────────────────────────────────────── */
+    #header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--navy-dk);
+      box-shadow: 0 2px 12px rgba(0,0,0,.3);
+      transition: var(--trans);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .logo-emblem {
+      width: 46px;
+      height: 46px;
+      flex-shrink: 0;
+    }
+    .logo-text { line-height: 1.2; }
+    .logo-text .post { font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+    .logo-text .name { font-family: 'Merriweather', serif; font-size: 1rem; color: var(--white); font-weight: 900; }
+    .logo-text .sub { font-size: .68rem; color: rgba(255,255,255,.65); }
+
+    nav { display: flex; align-items: center; gap: 4px; }
+    nav a {
+      font-size: .82rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.82);
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: var(--trans);
+      white-space: nowrap;
+    }
+    nav a:hover, nav a.active { color: var(--white); background: rgba(255,255,255,.1); }
+
+    .header-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .header-donate {
+      background: var(--red);
+      color: var(--white);
+      padding: 8px 18px;
+      border-radius: var(--radius);
+      font-size: .82rem;
+      font-weight: 700;
+      transition: var(--trans);
+    }
+    .header-donate:hover { background: var(--red-dk); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: var(--trans);
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile nav drawer */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 70px;
+      left: 0; right: 0;
+      background: var(--navy-dk);
+      padding: 20px 24px 32px;
+      z-index: 999;
+      border-top: 2px solid var(--gold);
+    }
+    .mobile-nav.open { display: block; }
+    .mobile-nav a {
+      display: block;
+      padding: 12px 0;
+      font-size: 1rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.85);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      transition: var(--trans);
+    }
+    .mobile-nav a:hover { color: var(--gold); }
+
+    /* ── HERO ───────────────────────────────────────────────── */
+    #hero {
+      background:
+        linear-gradient(160deg, rgba(0,24,69,.92) 0%, rgba(191,10,48,.75) 100%),
+        url('https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1400&q=80') center/cover no-repeat;
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      padding: 80px 0;
+    }
+    .hero-content { max-width: 700px; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(200,168,75,.15);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 7px; height: 7px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+    #hero h1 {
+      font-family: 'Merriweather', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    #hero h1 em {
+      color: var(--gold-lt);
+      font-style: normal;
+    }
+    #hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,.85);
+      margin-bottom: 36px;
+      max-width: 560px;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    /* ── INFO BAR ───────────────────────────────────────────── */
+    #info-bar {
+      background: var(--gold);
+      padding: 18px 0;
+    }
+    .info-bar-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+    }
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--navy-dk);
+    }
+    .info-icon {
+      width: 36px; height: 36px;
+      background: var(--navy-dk);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .info-icon svg { width: 16px; height: 16px; fill: var(--gold); }
+    .info-item .info-label { font-size: .72rem; color: rgba(0,24,69,.65); font-weight: 500; }
+
+    /* ── MISSION / PILLARS ──────────────────────────────────── */
+    #mission {
+      background: var(--cream);
+    }
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .pillar-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; }
+    .pillar-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 20px;
+      border-top: 3px solid var(--gold);
+      box-shadow: 0 2px 12px rgba(0,40,104,.06);
+    }
+    .pillar-num {
+      font-family: 'Merriweather', serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--red);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .pillar-title {
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    .pillar-desc { font-size: .82rem; color: var(--muted); margin-top: 6px; }
+
+    .mission-img-wrap {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .mission-img-wrap img { width: 100%; height: 420px; object-fit: cover; }
+    .mission-img-badge {
+      position: absolute;
+      bottom: 20px; left: 20px;
+      background: var(--navy-dk);
+      color: var(--white);
+      padding: 12px 18px;
+      border-radius: var(--radius);
+      border-left: 4px solid var(--gold);
+    }
+    .mission-img-badge .big { font-family: 'Merriweather', serif; font-size: 1.4rem; font-weight: 900; color: var(--gold); }
+    .mission-img-badge .sm { font-size: .78rem; color: rgba(255,255,255,.8); }
+
+    /* ── PROGRAMS ───────────────────────────────────────────── */
+    #programs { background: var(--white); }
+    .programs-header { text-align: center; margin-bottom: 48px; }
+    .programs-header .section-sub { margin: 0 auto; }
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .prog-card {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,40,104,.08);
+      transition: transform var(--trans), box-shadow var(--trans);
+      border: 1px solid rgba(0,40,104,.08);
+    }
+    .prog-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,40,104,.14);
+    }
+    .prog-card-top {
+      height: 6px;
+      background: var(--gold);
+    }
+    .prog-card-top.red { background: var(--red); }
+    .prog-card-top.navy { background: var(--navy); }
+    .prog-card-body { padding: 24px; }
+    .prog-icon {
+      width: 48px; height: 48px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 1.4rem;
+    }
+    .prog-icon.gold-bg { background: var(--gold-lt); }
+    .prog-icon.red-bg { background: #FFE5E5; }
+    .prog-icon.navy-bg { background: #E6ECF7; }
+    .prog-card-body h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .prog-card-body p { font-size: .88rem; color: var(--muted); }
+    .prog-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--red);
+      margin-top: 14px;
+    }
+    .prog-link:hover { gap: 8px; }
+
+    /* ── EVENTS ─────────────────────────────────────────────── */
+    #events { background: var(--gray); }
+    .events-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .event-card {
+      background: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,40,104,.07);
+      display: flex;
+      transition: transform var(--trans);
+    }
+    .event-card:hover { transform: translateY(-3px); }
+    .event-date-block {
+      width: 72px;
+      flex-shrink: 0;
+      background: var(--navy);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      color: var(--white);
+    }
+    .event-month { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); }
+    .event-day { font-family: 'Merriweather', serif; font-size: 1.8rem; font-weight: 900; line-height: 1; }
+    .event-body { padding: 18px; flex: 1; }
+    .event-tag {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 6px;
+    }
+    .event-body h3 {
+      font-family: 'Merriweather', serif;
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .event-meta { font-size: .8rem; color: var(--muted); }
+
+    /* ── MEETING INFO ───────────────────────────────────────── */
+    #meeting {
+      background: var(--navy);
+      color: var(--white);
+    }
+    .meeting-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    #meeting h2 { font-family: 'Merriweather', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 900; margin-bottom: 16px; }
+    #meeting .label { color: var(--gold); }
+    #meeting p { color: rgba(255,255,255,.78); margin-bottom: 28px; }
+    .schedule-blocks { display: flex; flex-direction: column; gap: 12px; }
+    .sched-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(255,255,255,.07);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      border-left: 3px solid var(--gold);
+    }
+    .sched-time {
+      font-family: 'Merriweather', serif;
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--gold);
+      min-width: 60px;
+    }
+    .sched-desc { font-size: .9rem; color: rgba(255,255,255,.85); }
+
+    /* ── MEMBERSHIP ─────────────────────────────────────────── */
+    #membership { background: var(--cream); }
+    .membership-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .mem-card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 28px;
+      box-shadow: 0 2px 14px rgba(0,40,104,.07);
+      text-align: center;
+      border-bottom: 3px solid transparent;
+      transition: var(--trans);
+    }
+    .mem-card:hover { border-bottom-color: var(--gold); transform: translateY(-3px); }
+    .mem-icon { font-size: 2.4rem; margin-bottom: 14px; }
+    .mem-card h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.1rem;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .mem-card p { font-size: .85rem; color: var(--muted); }
+    .mem-price {
+      font-family: 'Merriweather', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--red);
+      margin-top: 16px;
+    }
+    .mem-price span { font-size: .85rem; color: var(--muted); font-weight: 400; font-family: 'Open Sans', sans-serif; }
+
+    .mem-cta {
+      background: var(--navy-dk);
+      border-radius: 12px;
+      padding: 48px;
+      text-align: center;
+      margin-top: 48px;
+      color: var(--white);
+    }
+    .mem-cta h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+    .mem-cta p { color: rgba(255,255,255,.75); max-width: 500px; margin: 0 auto 28px; }
+
+    /* ── FUNDRAISERS ────────────────────────────────────────── */
+    #fundraisers { background: var(--white); }
+    .fundraisers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .fund-card {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,40,104,.08);
+      border: 1px solid rgba(0,40,104,.07);
+    }
+    .fund-header {
+      background: var(--navy);
+      padding: 20px 24px;
+      color: var(--white);
+    }
+    .fund-header .tag {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .fund-header h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+    .fund-body { padding: 20px 24px; }
+    .fund-body p { font-size: .88rem; color: var(--muted); margin-bottom: 16px; }
+    .fund-goal {
+      background: var(--gray);
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+    .progress-bar {
+      height: 6px;
+      background: rgba(0,40,104,.1);
+      border-radius: 3px;
+      margin-top: 8px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--navy), var(--red));
+      border-radius: 3px;
+    }
+
+    /* ── RENTALS ────────────────────────────────────────────── */
+    #rentals { background: var(--gray); }
+    .rentals-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .rental-features { display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
+    .rental-feat {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .rental-feat-icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+      color: var(--white);
+    }
+    .rental-feat-text h4 { font-size: .92rem; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
+    .rental-feat-text p { font-size: .82rem; color: var(--muted); }
+    .rental-img-wrap {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .rental-img-wrap img { width: 100%; height: 380px; object-fit: cover; }
+
+    /* ── IMPACT STATS ───────────────────────────────────────── */
+    #impact {
+      background: linear-gradient(135deg, var(--navy-dk) 0%, var(--red-dk) 100%);
+      color: var(--white);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Merriweather', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      font-size: .85rem;
+      color: rgba(255,255,255,.75);
+      font-weight: 500;
+    }
+
+    /* ── CONTACT / LOCATION ─────────────────────────────────── */
+    #contact { background: var(--cream); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .contact-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .contact-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.1rem;
+      color: var(--white);
+    }
+    .contact-item h4 { font-size: .82rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }
+    .contact-item p, .contact-item a { font-size: .95rem; color: var(--navy); font-weight: 600; }
+    .contact-item a:hover { color: var(--red); }
+
+    .map-wrap {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      height: 380px;
+      background: #ddd;
+    }
+    .map-wrap iframe { width: 100%; height: 100%; border: none; }
+
+    .social-links { display: flex; gap: 12px; margin-top: 28px; }
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--navy);
+      color: var(--white);
+      padding: 10px 18px;
+      border-radius: var(--radius);
+      font-size: .82rem;
+      font-weight: 700;
+      transition: var(--trans);
+    }
+    .social-link:hover { background: var(--red); }
+
+    /* ── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      background: var(--navy-dk);
+      color: rgba(255,255,255,.65);
+      padding: 48px 0 32px;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 40px;
+    }
+    .footer-brand .logo-text .post,
+    .footer-brand .logo-text .name,
+    .footer-brand .logo-text .sub { color: rgba(255,255,255,.65); }
+    .footer-brand .logo-text .name { color: var(--white); }
+    .footer-brand p {
+      font-size: .85rem;
+      margin-top: 14px;
+      line-height: 1.7;
+      color: rgba(255,255,255,.55);
+    }
+    .footer-col h4 {
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a {
+      font-size: .85rem;
+      color: rgba(255,255,255,.6);
+      transition: var(--trans);
+    }
+    .footer-col ul li a:hover { color: var(--white); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: .8rem;
+    }
+    .footer-bottom a { color: var(--gold); }
+    .footer-bottom a:hover { text-decoration: underline; }
+    .al-motto {
+      font-style: italic;
+      color: var(--gold);
+      font-size: .82rem;
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .mission-grid,
+      .meeting-inner,
+      .rentals-inner,
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .mission-img-wrap { order: -1; }
+      .mission-img-wrap img { height: 280px; }
+      .rental-img-wrap img { height: 260px; }
+    }
+    @media (max-width: 700px) {
+      nav { display: none; }
+      .hamburger { display: flex; }
+      .header-donate { display: none; }
+      .section { padding: 56px 0; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+      .pillar-list { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .mem-cta { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ HEADER ════════════════════════════════════════════════ -->
+<header id="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <!-- American Legion Emblem (SVG) -->
+        <svg class="logo-emblem" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="48" fill="#002868" stroke="#C8A84B" stroke-width="3"/>
+          <polygon points="50,12 56,32 78,32 60,44 67,65 50,53 33,65 40,44 22,32 44,32" fill="#C8A84B"/>
+          <circle cx="50" cy="50" r="16" fill="none" stroke="#BF0A30" stroke-width="3"/>
+          <text x="50" y="86" text-anchor="middle" font-size="9" fill="#C8A84B" font-family="serif" font-weight="bold">LEGION</text>
+        </svg>
+        <div class="logo-text">
+          <div class="post">American Legion</div>
+          <div class="name">Chapel Hill Post No. 6</div>
+          <div class="sub">Chapel Hill, North Carolina</div>
+        </div>
+      </a>
+
+      <nav>
+        <a href="#mission">About</a>
+        <a href="#programs">Programs</a>
+        <a href="#events">Events</a>
+        <a href="#membership">Membership</a>
+        <a href="#rentals">Rentals</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-cta">
+        <a href="#membership" class="header-donate">Join / Donate</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#mission" class="mob-link">About</a>
+  <a href="#programs" class="mob-link">Programs</a>
+  <a href="#events" class="mob-link">Events</a>
+  <a href="#membership" class="mob-link">Membership</a>
+  <a href="#fundraisers" class="mob-link">Fundraisers</a>
+  <a href="#rentals" class="mob-link">Rentals</a>
+  <a href="#contact" class="mob-link">Contact</a>
+</div>
+
+<!-- ══ HERO ══════════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-content fade-up">
+      <div class="hero-badge">Serving Chapel Hill Veterans Since 1919</div>
+      <h1>For God,<br/>For Country,<br/><em>For Veterans.</em></h1>
+      <p>Chapel Hill Post No. 6 proudly serves veterans and their families — from WWII to today's conflicts. Join us, volunteer, or simply find the support you've earned.</p>
+      <div class="hero-actions">
+        <a href="#membership" class="btn btn-primary">Join the Legion &rarr;</a>
+        <a href="#contact" class="btn btn-outline">Visit Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ INFO BAR ══════════════════════════════════════════════ -->
+<div id="info-bar">
+  <div class="container">
+    <div class="info-bar-inner">
+      <div class="info-item">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </div>
+        <div>
+          <div class="info-label">Our Location</div>
+          <strong>3700 NC Hwy 54 W, Chapel Hill, NC</strong>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+        </div>
+        <div>
+          <div class="info-label">Monthly Meetings</div>
+          <strong>2nd Tuesday — 5:30 PM</strong>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        </div>
+        <div>
+          <div class="info-label">Phone</div>
+          <strong>(919) 942-0622</strong>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </div>
+        <div>
+          <div class="info-label">Email</div>
+          <strong>info@chapelhillpost6.com</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MISSION / FOUR PILLARS ════════════════════════════════ -->
+<section id="mission" class="section">
+  <div class="container">
+    <div class="mission-grid">
+      <div class="fade-up">
+        <div class="label">Our Purpose</div>
+        <h2 class="section-title">Standing on Four Pillars of Service</h2>
+        <p class="section-sub">Since 1919, the American Legion has been guided by four core commitments. Post No. 6 lives these values every day in Chapel Hill and Orange County.</p>
+        <div class="pillar-list">
+          <div class="pillar-card">
+            <div class="pillar-num">01</div>
+            <div class="pillar-title">Veterans Affairs &amp; Rehabilitation</div>
+            <div class="pillar-desc">Ensuring every veteran receives the care and benefits they earned.</div>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-num">02</div>
+            <div class="pillar-title">National Security</div>
+            <div class="pillar-desc">Supporting a strong, well-prepared national defense.</div>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-num">03</div>
+            <div class="pillar-title">Americanism</div>
+            <div class="pillar-desc">Promoting patriotism, youth programs, and civic responsibility.</div>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-num">04</div>
+            <div class="pillar-title">Children &amp; Youth</div>
+            <div class="pillar-desc">Investing in the next generation through scouting, Boys State, and scholarships.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mission-img-wrap fade-up">
+        <img
+          src="https://images.unsplash.com/photo-1582647509711-c8aa8a8bda71?w=800&q=80"
+          alt="Veterans gathering at Chapel Hill Post No. 6"
+        />
+        <div class="mission-img-badge">
+          <div class="big">100+</div>
+          <div class="sm">Years of Serving Veterans</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROGRAMS ══════════════════════════════════════════════ -->
+<section id="programs" class="section">
+  <div class="container">
+    <div class="programs-header fade-up">
+      <div class="label">Get Involved</div>
+      <h2 class="section-title">Programs &amp; Organizations</h2>
+      <p class="section-sub">From youth development to veteran support, there's a place for every veteran and family member at Post No. 6.</p>
+    </div>
+
+    <div class="programs-grid">
+      <div class="prog-card fade-up">
+        <div class="prog-card-top gold"></div>
+        <div class="prog-card-body">
+          <div class="prog-icon gold-bg">🎖️</div>
+          <h3>American Legion Auxiliary</h3>
+          <p>Open to spouses, daughters, granddaughters, and other female relatives of veterans. The Auxiliary is one of the largest patriotic service organizations for women in the world.</p>
+          <div class="prog-link">Learn more &rarr;</div>
+        </div>
+      </div>
+
+      <div class="prog-card fade-up">
+        <div class="prog-card-top navy"></div>
+        <div class="prog-card-body">
+          <div class="prog-icon navy-bg">⭐</div>
+          <h3>Sons of the American Legion (SAL)</h3>
+          <p>Male descendants of veterans are eligible to join the SAL — continuing the Legion's legacy across generations while serving the community.</p>
+          <div class="prog-link">Learn more &rarr;</div>
+        </div>
+      </div>
+
+      <div class="prog-card fade-up">
+        <div class="prog-card-top red"></div>
+        <div class="prog-card-body">
+          <div class="prog-icon red-bg">🏍️</div>
+          <h3>American Legion Riders</h3>
+          <p>Motorcycle enthusiasts who raise funds and awareness for veteran causes. The Riders participate in parades, charity runs, and honor escort missions.</p>
+          <div class="prog-link">Learn more &rarr;</div>
+        </div>
+      </div>
+
+      <div class="prog-card fade-up">
+        <div class="prog-card-top gold"></div>
+        <div class="prog-card-body">
+          <div class="prog-icon gold-bg">🏕️</div>
+          <h3>Boy Scout Troops 505 &amp; 835</h3>
+          <p>Post No. 6 proudly sponsors two active Boy Scout troops in Chapel Hill, helping shape the next generation of leaders through outdoor adventure and civic service.</p>
+          <div class="prog-link">Learn more &rarr;</div>
+        </div>
+      </div>
+
+      <div class="prog-card fade-up">
+        <div class="prog-card-top navy"></div>
+        <div class="prog-card-body">
+          <div class="prog-icon navy-bg">🎤</div>
+          <h3>Boys &amp; Girls State / Oratorical Contest</h3>
+          <p>We fund scholarships for high schoolers to attend Boys and Girls State leadership programs, and host the American Legion Oratorical Contest each year.</p>
+          <div class="prog-link">Learn more &rarr;</div>
+        </div>
+      </div>
+
+      <div class="prog-card fade-up">
+        <div class="prog-card-top red"></div>
+        <div class="prog-card-body">
+          <div class="prog-icon red-bg">🎣</div>
+          <h3>Healing Waters &amp; Veteran Services</h3>
+          <p>Operation Healing Waters offers fly-fishing therapy to wounded warriors. Our Veteran Services Officer helps members navigate VA benefits and claims.</p>
+          <div class="prog-link">Learn more &rarr;</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Honor programs -->
+    <div style="margin-top:40px; display:flex; flex-wrap:wrap; gap:16px; justify-content:center;">
+      <div style="background:var(--navy);color:var(--white);border-radius:8px;padding:14px 22px;font-size:.88rem;font-weight:600;display:flex;align-items:center;gap:8px;">
+        🎖️ Honor Guard
+      </div>
+      <div style="background:var(--navy);color:var(--white);border-radius:8px;padding:14px 22px;font-size:.88rem;font-weight:600;display:flex;align-items:center;gap:8px;">
+        🚗 Post 6 Cruisers
+      </div>
+      <div style="background:var(--navy);color:var(--white);border-radius:8px;padding:14px 22px;font-size:.88rem;font-weight:600;display:flex;align-items:center;gap:8px;">
+        🇺🇸 Flag Disposal Ceremonies
+      </div>
+      <div style="background:var(--navy);color:var(--white);border-radius:8px;padding:14px 22px;font-size:.88rem;font-weight:600;display:flex;align-items:center;gap:8px;">
+        🩸 Community Blood Drives
+      </div>
+      <div style="background:var(--navy);color:var(--white);border-radius:8px;padding:14px 22px;font-size:.88rem;font-weight:600;display:flex;align-items:center;gap:8px;">
+        📰 Gold Standard Newsletter
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EVENTS ════════════════════════════════════════════════ -->
+<section id="events" class="section">
+  <div class="container">
+    <div class="events-header">
+      <div class="fade-up">
+        <div class="label">What's Coming Up</div>
+        <h2 class="section-title">Upcoming Events</h2>
+      </div>
+      <a href="#contact" class="btn btn-navy fade-up">Full Calendar &rarr;</a>
+    </div>
+
+    <div class="events-grid">
+      <div class="event-card fade-up">
+        <div class="event-date-block">
+          <div class="event-month">May</div>
+          <div class="event-day">26</div>
+        </div>
+        <div class="event-body">
+          <div class="event-tag">Ceremony</div>
+          <h3>Memorial Day Ceremony</h3>
+          <div class="event-meta">10:00 AM &bull; Post No. 6 Grounds<br/>Honor Guard &bull; Public Welcome</div>
+        </div>
+      </div>
+
+      <div class="event-card fade-up">
+        <div class="event-date-block">
+          <div class="event-month">Jun</div>
+          <div class="event-day">10</div>
+        </div>
+        <div class="event-body">
+          <div class="event-tag">Monthly Meeting</div>
+          <h3>June Post Meeting</h3>
+          <div class="event-meta">5:30 PM Social &bull; 6:30 PM Dinner<br/>7:30 PM Official Meeting</div>
+        </div>
+      </div>
+
+      <div class="event-card fade-up">
+        <div class="event-date-block">
+          <div class="event-month">Sep</div>
+          <div class="event-day">20</div>
+        </div>
+        <div class="event-body">
+          <div class="event-tag">Community</div>
+          <h3>Fall Festival</h3>
+          <div class="event-meta">All Day &bull; Post No. 6 Hall<br/>Food, Live Music, Family Fun</div>
+        </div>
+      </div>
+
+      <div class="event-card fade-up">
+        <div class="event-date-block">
+          <div class="event-month">Oct</div>
+          <div class="event-day">15</div>
+        </div>
+        <div class="event-body">
+          <div class="event-tag">Community Service</div>
+          <h3>Community Blood Drive</h3>
+          <div class="event-meta">9:00 AM – 3:00 PM &bull; Post Hall<br/>Walk-ins Welcome</div>
+        </div>
+      </div>
+
+      <div class="event-card fade-up">
+        <div class="event-date-block">
+          <div class="event-month">Nov</div>
+          <div class="event-day">11</div>
+        </div>
+        <div class="event-body">
+          <div class="event-tag">Veterans Day</div>
+          <h3>Veterans Day Luncheon</h3>
+          <div class="event-meta">12:00 PM &bull; Post No. 6 Hall<br/>All Veterans &amp; Families Welcome</div>
+        </div>
+      </div>
+
+      <div class="event-card fade-up">
+        <div class="event-date-block">
+          <div class="event-month">TBD</div>
+          <div class="event-day" style="font-size:1.2rem;">2026</div>
+        </div>
+        <div class="event-body">
+          <div class="event-tag">Fundraiser</div>
+          <h3>Marathon Jam</h3>
+          <div class="event-meta">Benefiting Fisher House at Fort Bragg<br/>Goal: $10,000</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MEETING INFO ══════════════════════════════════════════ -->
+<section id="meeting" class="section">
+  <div class="container">
+    <div class="meeting-inner">
+      <div class="fade-up">
+        <div class="label">Come Meet Us</div>
+        <h2>Every Second Tuesday of the Month</h2>
+        <p>Our monthly meetings are open to all members — come early to socialize, stay for dinner, and participate in the official meeting. Guests and prospective members are always welcome.</p>
+        <a href="#contact" class="btn btn-gold">Get Directions &rarr;</a>
+      </div>
+      <div class="fade-up">
+        <div class="schedule-blocks">
+          <div class="sched-item">
+            <div class="sched-time">5:30</div>
+            <div class="sched-desc"><strong>Social Hour</strong> — Connect with fellow veterans and members</div>
+          </div>
+          <div class="sched-item">
+            <div class="sched-time">6:30</div>
+            <div class="sched-desc"><strong>Dinner</strong> — Enjoy a meal together as a post family</div>
+          </div>
+          <div class="sched-item">
+            <div class="sched-time">7:30</div>
+            <div class="sched-desc"><strong>Official Meeting</strong> — Post business, updates, and votes</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MEMBERSHIP ════════════════════════════════════════════ -->
+<section id="membership" class="section">
+  <div class="container">
+    <div class="fade-up" style="text-align:center;margin-bottom:0;">
+      <div class="label">Join the Legion</div>
+      <h2 class="section-title">Who Can Be a Member?</h2>
+      <p class="section-sub" style="margin:0 auto;">Congress has broadened eligibility. If you served even one day on active federal service since December 7, 1941 and received an honorable discharge — you qualify.</p>
+    </div>
+
+    <div class="membership-grid">
+      <div class="mem-card fade-up">
+        <div class="mem-icon">🎖️</div>
+        <h3>Legion Member</h3>
+        <p>Any honorably discharged veteran who served on active federal service since Dec. 7, 1941. All branches welcome — Army, Navy, Marines, Air Force, Coast Guard, Space Force.</p>
+        <div class="mem-price">$40 <span>/ year</span></div>
+      </div>
+      <div class="mem-card fade-up">
+        <div class="mem-icon">🌟</div>
+        <h3>American Legion Auxiliary</h3>
+        <p>Spouses, daughters, granddaughters, sisters, mothers, and grandmothers of eligible veterans. One of the largest women's patriotic organizations in the world.</p>
+        <div class="mem-price" style="color:var(--navy);">Contact Us</div>
+      </div>
+      <div class="mem-card fade-up">
+        <div class="mem-icon">👦</div>
+        <h3>Sons of the American Legion</h3>
+        <p>Male descendants (sons, grandsons, great-grandsons, stepsons, and adopted sons) of members or deceased veterans eligible for Legion membership.</p>
+        <div class="mem-price" style="color:var(--navy);">Contact Us</div>
+      </div>
+    </div>
+
+    <div class="mem-cta fade-up">
+      <h3>Ready to Continue Your Service?</h3>
+      <p>We're not here to pressure anyone. We want members who are ready to give back a little to their community. If that's you — we'd love to have you.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;">
+        <a href="https://www.legion.org/membership/join" target="_blank" rel="noopener" class="btn btn-gold">Download Application &rarr;</a>
+        <a href="#contact" class="btn btn-outline">Contact Our Adjutant</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FUNDRAISERS ═══════════════════════════════════════════ -->
+<section id="fundraisers" class="section">
+  <div class="container">
+    <div class="fade-up" style="margin-bottom:40px;">
+      <div class="label">Support the Cause</div>
+      <h2 class="section-title">Active Fundraisers &amp; Campaigns</h2>
+      <p class="section-sub">Your support helps us fund veteran programs, youth scholarships, and community events.</p>
+    </div>
+
+    <div class="fundraisers-grid">
+      <div class="fund-card fade-up">
+        <div class="fund-header">
+          <div class="tag">Concert Fundraiser</div>
+          <h3>Marathon Jam</h3>
+        </div>
+        <div class="fund-body">
+          <p>Annual music event raising funds for the Fisher House at Fort Bragg — providing free lodging for families of hospitalized veterans and service members.</p>
+          <div class="fund-goal">
+            Goal: $10,000
+            <div class="progress-bar"><div class="progress-fill" style="width:62%"></div></div>
+          </div>
+          <a href="#contact" class="btn btn-navy" style="font-size:.82rem;padding:10px 18px;">Get Tickets / Donate</a>
+        </div>
+      </div>
+
+      <div class="fund-card fade-up">
+        <div class="fund-header">
+          <div class="tag">Raffle</div>
+          <h3>Henry Commemorative Rifle Raffle</h3>
+        </div>
+        <div class="fund-body">
+          <p>Win a Henry Commemorative American Legion .22 LR rifle — a beautiful collector's piece. Proceeds support Post No. 6 veteran programs and community initiatives.</p>
+          <div class="fund-goal">Limited Tickets Available</div>
+          <a href="#contact" class="btn btn-navy" style="font-size:.82rem;padding:10px 18px;">Get Raffle Tickets</a>
+        </div>
+      </div>
+
+      <div class="fund-card fade-up">
+        <div class="fund-header">
+          <div class="tag">Raffle — Boys State</div>
+          <h3>Kentucky Bourbon &amp; Horses Tour</h3>
+        </div>
+        <div class="fund-body">
+          <p>Enter to win an unforgettable tour of Kentucky bourbon distilleries and horse country. All proceeds fund scholarships to send Chapel Hill students to Boys State.</p>
+          <div class="fund-goal">Benefits Boys State Scholarships</div>
+          <a href="#contact" class="btn btn-navy" style="font-size:.82rem;padding:10px 18px;">Enter Raffle</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Other giving options -->
+    <div style="margin-top:40px;background:var(--cream);border-radius:12px;padding:32px 40px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;">
+      <div>
+        <h3 style="font-family:'Merriweather',serif;font-size:1.1rem;color:var(--navy);margin-bottom:6px;">Other Ways to Give</h3>
+        <p style="font-size:.88rem;color:var(--muted);">Donate a vehicle, purchase a memorial brick paver, or make a direct donation.</p>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="#contact" class="btn btn-navy" style="font-size:.82rem;padding:10px 18px;">Donate Directly</a>
+        <a href="#contact" class="btn" style="font-size:.82rem;padding:10px 18px;background:var(--cream);color:var(--navy);border:2px solid var(--navy);">Donate a Vehicle</a>
+        <a href="#contact" class="btn" style="font-size:.82rem;padding:10px 18px;background:var(--cream);color:var(--navy);border:2px solid var(--navy);">Memorial Brick Pavers</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ IMPACT STATS ══════════════════════════════════════════ -->
+<section id="impact" class="section-sm">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="fade-up">
+        <div class="stat-num">100+</div>
+        <div class="stat-label">Years Serving Veterans</div>
+      </div>
+      <div class="fade-up">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Boy Scout Troops Sponsored</div>
+      </div>
+      <div class="fade-up">
+        <div class="stat-num">$10K</div>
+        <div class="stat-label">Fisher House Goal This Year</div>
+      </div>
+      <div class="fade-up">
+        <div class="stat-num">ALL</div>
+        <div class="stat-label">Branches &amp; Eras Welcome</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ RENTALS ════════════════════════════════════════════════ -->
+<section id="rentals" class="section">
+  <div class="container">
+    <div class="rentals-inner">
+      <div class="fade-up">
+        <div class="label">Host Your Event</div>
+        <h2 class="section-title">Rent Our Hall</h2>
+        <p class="section-sub">Our modern facility at 3700 NC Hwy 54 W is available for private events — banquets, meetings, family gatherings, and more. Renting supports veteran programs.</p>
+        <div class="rental-features">
+          <div class="rental-feat">
+            <div class="rental-feat-icon">🏛️</div>
+            <div class="rental-feat-text">
+              <h4>Spacious Main Hall</h4>
+              <p>Ample room for banquets, receptions, and large gatherings</p>
+            </div>
+          </div>
+          <div class="rental-feat">
+            <div class="rental-feat-icon">🍽️</div>
+            <div class="rental-feat-text">
+              <h4>Full Kitchen Access</h4>
+              <p>Commercial kitchen available for catered events</p>
+            </div>
+          </div>
+          <div class="rental-feat">
+            <div class="rental-feat-icon">🅿️</div>
+            <div class="rental-feat-text">
+              <h4>Ample Parking</h4>
+              <p>Convenient, well-lit parking for all your guests</p>
+            </div>
+          </div>
+          <div class="rental-feat">
+            <div class="rental-feat-icon">♿</div>
+            <div class="rental-feat-text">
+              <h4>ADA Accessible</h4>
+              <p>Fully accessible facility designed with all guests in mind</p>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:28px;">
+          <a href="#contact" class="btn btn-primary">Inquire About Rentals &rarr;</a>
+        </div>
+      </div>
+
+      <div class="rental-img-wrap fade-up">
+        <img
+          src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800&q=80"
+          alt="Post No. 6 event hall rental space"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT / LOCATION ════════════════════════════════════ -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="fade-up" style="margin-bottom:48px;">
+      <div class="label">Find Us</div>
+      <h2 class="section-title">Visit Chapel Hill Post No. 6</h2>
+    </div>
+
+    <div class="contact-grid">
+      <div class="fade-up">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <h4>Address</h4>
+            <p>3700 NC Highway 54 W<br/>Chapel Hill, NC 27516</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <h4>Phone</h4>
+            <a href="tel:+19199420622">(919) 942-0622</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <h4>Email</h4>
+            <a href="mailto:info@chapelhillpost6.com">info@chapelhillpost6.com</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📅</div>
+          <div>
+            <h4>Monthly Meetings</h4>
+            <p>2nd Tuesday • 5:30 PM Social<br/>6:30 PM Dinner • 7:30 PM Meeting</p>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a
+            href="https://www.facebook.com/AmericanLegionChapelHillPost6"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+            Follow on Facebook
+          </a>
+        </div>
+      </div>
+
+      <div class="map-wrap fade-up">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3232.8!2d-79.068!3d35.895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89acc0!2s3700+NC+Hwy+54+W%2C+Chapel+Hill%2C+NC+27516!5e0!3m2!1sen!2sus!4v1"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Chapel Hill Post No. 6 location map"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo">
+          <svg class="logo-emblem" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width:42px;height:42px;">
+            <circle cx="50" cy="50" r="48" fill="#002868" stroke="#C8A84B" stroke-width="3"/>
+            <polygon points="50,12 56,32 78,32 60,44 67,65 50,53 33,65 40,44 22,32 44,32" fill="#C8A84B"/>
+            <circle cx="50" cy="50" r="16" fill="none" stroke="#BF0A30" stroke-width="3"/>
+            <text x="50" y="86" text-anchor="middle" font-size="9" fill="#C8A84B" font-family="serif" font-weight="bold">LEGION</text>
+          </svg>
+          <div class="logo-text">
+            <div class="post" style="color:var(--gold)">American Legion</div>
+            <div class="name">Chapel Hill Post No. 6</div>
+          </div>
+        </div>
+        <p>Serving veterans and their families in Chapel Hill, North Carolina since 1919. We welcome all who have served — from WWII to today.</p>
+        <div style="margin-top:16px;">
+          <a href="https://www.facebook.com/AmericanLegionChapelHillPost6" target="_blank" rel="noopener" style="color:var(--gold);font-size:.82rem;font-weight:700;">Facebook &rarr;</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#mission">About &amp; Mission</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#events">Events &amp; Calendar</a></li>
+          <li><a href="#membership">Membership</a></li>
+          <li><a href="#fundraisers">Fundraisers</a></li>
+          <li><a href="#rentals">Hall Rentals</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="https://maps.google.com/?q=3700+NC+Hwy+54+W+Chapel+Hill+NC" target="_blank">3700 NC Hwy 54 W<br/>Chapel Hill, NC 27516</a></li>
+          <li><a href="tel:+19199420622">(919) 942-0622</a></li>
+          <li><a href="mailto:info@chapelhillpost6.com">info@chapelhillpost6.com</a></li>
+        </ul>
+        <div style="margin-top:20px;">
+          <h4>National Resources</h4>
+          <ul>
+            <li><a href="https://www.legion.org" target="_blank" rel="noopener">The American Legion</a></li>
+            <li><a href="https://www.va.gov" target="_blank" rel="noopener">VA.gov</a></li>
+            <li><a href="https://www.legion.org/veteransbenefits" target="_blank" rel="noopener">Veterans Benefits</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>
+        &copy; 2026 Chapel Hill Post No. 6, American Legion. All rights reserved.
+      </div>
+      <div class="al-motto">"For God and Country"</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ SCRIPTS ════════════════════════════════════════════════ -->
+<script>
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+  });
+
+  // Close mobile nav on link click
+  document.querySelectorAll('.mob-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('open');
+    });
+  });
+
+  // Active nav highlight on scroll
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const navLinks = document.querySelectorAll('nav a');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+
+  // Fade-up on scroll
+  const fadeObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+
+  // Hero fades in immediately
+  document.querySelector('#hero .fade-up').classList.add('visible');
+</script>
+
+</body>
+</html>
