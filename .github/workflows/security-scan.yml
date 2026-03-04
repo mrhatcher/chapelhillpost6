@@ -1,0 +1,79 @@
+name: Security Scan
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  security:
+    name: Static Security Analysis
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check for secrets in code
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
+          base: HEAD~1
+          head: HEAD
+        continue-on-error: true
+
+      - name: Run Semgrep SAST
+        uses: semgrep/semgrep-action@v1
+        with:
+          config: >-
+            p/javascript
+            p/html
+            p/secrets
+        continue-on-error: true
+
+      - name: Check vercel.json security headers
+        run: |
+          echo "Checking vercel.json..."
+          if [ ! -f vercel.json ]; then
+            echo "ERROR: vercel.json missing — no security headers configured"
+            exit 1
+          fi
+          for header in "X-Frame-Options" "X-Content-Type-Options" "Content-Security-Policy" "Referrer-Policy"; do
+            if grep -q "$header" vercel.json; then
+              echo "PASS: $header found"
+            else
+              echo "FAIL: $header missing from vercel.json"
+            fi
+          done
+
+      - name: Check for mixed content (http:// links)
+        run: |
+          COUNT=$(grep -roh 'http://[^"'\'' >]*' *.html 2>/dev/null | grep -v localhost | wc -l)
+          if [ "$COUNT" -gt 0 ]; then
+            echo "WARNING: $COUNT http:// links found (mixed content risk)"
+            grep -rn 'http://[^"'\'' >]*' *.html | grep -v localhost
+          else
+            echo "PASS: No http:// mixed content links"
+          fi
+
+      - name: Check for eval() and document.write()
+        run: |
+          FAIL=0
+          if grep -rq 'eval(' *.html 2>/dev/null; then
+            echo "FAIL: eval() found in HTML"
+            FAIL=1
+          else
+            echo "PASS: No eval() usage"
+          fi
+          if grep -rq 'document\.write(' *.html 2>/dev/null; then
+            echo "FAIL: document.write() found"
+            FAIL=1
+          else
+            echo "PASS: No document.write() usage"
+          fi
+          exit $FAIL
+
+      - name: Scan summary
+        if: always()
+        run: echo "Security scan complete. Review results above before merging."
