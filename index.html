@@ -794,6 +794,95 @@
       .footer-bottom { flex-direction: column; text-align: center; }
       .mem-cta { padding: 32px 20px; }
     }
+
+    /* ── ORGANIZATIONS MODAL ─────────────────────────────── */
+    .org-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,24,69,.65);
+      z-index: 2000;
+      overflow-y: auto;
+      padding: 40px 16px;
+      backdrop-filter: blur(2px);
+    }
+    .org-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+    .org-dialog {
+      background: var(--white);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 1000px;
+      position: relative;
+      padding: 48px 48px 56px;
+      margin: auto;
+      animation: modalIn .22s ease;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: none; }
+    }
+    .org-close {
+      position: absolute;
+      top: 18px; right: 22px;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: var(--muted);
+      cursor: pointer;
+      line-height: 1;
+      transition: color var(--trans);
+    }
+    .org-close:hover { color: var(--red); }
+    .org-modal-head { margin-bottom: 28px; }
+    .org-tabs {
+      display: flex;
+      gap: 4px;
+      border-bottom: 2px solid rgba(0,40,104,.12);
+      margin-bottom: 36px;
+    }
+    .org-tab-btn {
+      padding: 10px 22px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--muted);
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      cursor: pointer;
+      transition: color var(--trans), border-color var(--trans);
+      white-space: nowrap;
+    }
+    .org-tab-btn:hover { color: var(--navy); }
+    .org-tab-btn.active { color: var(--navy); border-bottom-color: var(--navy); }
+    .org-panel { display: none; }
+    .org-panel.active { display: block; }
+    .org-item-btn {
+      flex: 1 1 auto;
+      padding: 11px 16px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--muted);
+      background: var(--gray);
+      border: none;
+      border-right: 1px solid rgba(0,40,104,.1);
+      cursor: pointer;
+      transition: background var(--trans), color var(--trans);
+      text-align: left;
+      white-space: nowrap;
+    }
+    .org-item-btn:last-child { border-right: none; }
+    .org-item-btn:hover { background: #e8ecf4; color: var(--navy); }
+    .org-item-btn.active { background: var(--navy); color: var(--white); }
+    .org-detail { display: none; }
+    .org-detail.active { display: block; }
+    @media (max-width: 700px) {
+      .org-dialog { padding: 32px 20px 40px; }
+      .org-tab-btn { font-size: .8rem; padding: 8px 14px; }
+      .org-item-btn { font-size: .75rem; padding: 9px 10px; }
+    }
   </style>
 </head>
 <body>
@@ -814,7 +903,7 @@
       <nav>
         <a href="#mission">About</a>
         <a href="#programs">Programs</a>
-        <a href="#organizations">Organizations</a>
+        <a href="#" class="org-trigger">Organizations</a>
         <a href="#events">Events</a>
         <a href="https://chapelhillpost6.com/news/calendar/" target="_blank" rel="noopener noreferrer">Calendar</a>
         <a href="#membership">Membership</a>
@@ -836,7 +925,7 @@
 <div class="mobile-nav" id="mobileNav">
   <a href="#mission" class="mob-link">About</a>
   <a href="#programs" class="mob-link">Programs</a>
-  <a href="#organizations" class="mob-link">Organizations</a>
+  <a href="#" class="mob-link org-trigger">Organizations</a>
   <a href="#events" class="mob-link">Events</a>
   <a href="https://chapelhillpost6.com/news/calendar/" target="_blank" rel="noopener noreferrer" class="mob-link">Calendar</a>
   <a href="#membership" class="mob-link">Membership</a>
@@ -1038,139 +1127,6 @@
       <div style="background:var(--navy);color:var(--white);border-radius:8px;padding:14px 22px;font-size:.88rem;font-weight:600;display:flex;align-items:center;gap:8px;">
         📰 Gold Standard Newsletter
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ ORGANIZATIONS ═════════════════════════════════════════ -->
-<section id="organizations" class="section" style="background:var(--cream);">
-  <div class="container">
-    <div class="fade-up" style="text-align:center;margin-bottom:48px;">
-      <div class="label">Who We Are</div>
-      <h2 class="section-title">Post Organizations &amp; Affiliates</h2>
-      <p class="section-sub" style="margin:0 auto;">Post No. 6 is home to several internal organizations and proudly shares its facilities with a wide range of veteran, civic, and community groups.</p>
-    </div>
-
-    <!-- Internal post organizations -->
-    <h3 style="font-family:'Merriweather',serif;font-size:1.1rem;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.06em;margin-bottom:24px;">Post Organizations</h3>
-    <div class="programs-grid" style="margin-bottom:56px;">
-
-      <div class="prog-card fade-up">
-        <div class="prog-card-top gold"></div>
-        <div class="prog-card-body">
-          <div class="prog-icon gold-bg">🌟</div>
-          <h3>American Legion Auxiliary</h3>
-          <p>A separate women's organization operating alongside Post No. 6. Open to spouses, daughters, granddaughters, sisters, mothers, and grandmothers of eligible veterans — one of the largest patriotic women's organizations in the world.</p>
-        </div>
-      </div>
-
-      <div class="prog-card fade-up">
-        <div class="prog-card-top navy"></div>
-        <div class="prog-card-body">
-          <div class="prog-icon navy-bg">⭐</div>
-          <h3>Sons of the American Legion (SAL)</h3>
-          <p>Male descendants of veterans continuing the Legion's legacy through community service and veteran support across generations. Open to sons, grandsons, great-grandsons, stepsons, and adopted sons of eligible veterans.</p>
-        </div>
-      </div>
-
-      <div class="prog-card fade-up">
-        <div class="prog-card-top red"></div>
-        <div class="prog-card-body">
-          <div class="prog-icon red-bg">🏍️</div>
-          <h3>American Legion Riders</h3>
-          <p>Motorcycle enthusiasts raising funds and awareness for veteran causes. The Riders participate in parades, charity runs, and honor escort missions throughout the state.</p>
-        </div>
-      </div>
-
-      <div class="prog-card fade-up">
-        <div class="prog-card-top navy"></div>
-        <div class="prog-card-body">
-          <div class="prog-icon navy-bg">🚗</div>
-          <h3>Post 6 Cruisers</h3>
-          <p>A vehicle enthusiast group connected to the Post, supporting veteran outreach and community events through their shared passion for automobiles.</p>
-        </div>
-      </div>
-
-      <div class="prog-card fade-up">
-        <div class="prog-card-top gold"></div>
-        <div class="prog-card-body">
-          <div class="prog-icon gold-bg">🎖️</div>
-          <h3>Post 6 Honor Guard</h3>
-          <p>An elite ceremonial unit known as the "Gold Standard" of Department of NC Honor Guards. Performs at funerals, dedications, post meetings, and community events. All Post 6 members are eligible to join.</p>
-        </div>
-      </div>
-
-      <div class="prog-card fade-up">
-        <div class="prog-card-top red"></div>
-        <div class="prog-card-body">
-          <div class="prog-icon red-bg">🎤</div>
-          <h3>Speakers' Bureau</h3>
-          <p>Post members available to speak at schools, civic groups, and community events about the American Legion's mission, veteran issues, and the history of Post No. 6.</p>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Affiliated organizations -->
-    <h3 style="font-family:'Merriweather',serif;font-size:1.1rem;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.06em;margin-bottom:24px;">Organizations Using Post Facilities</h3>
-    <p style="font-size:.95rem;color:var(--muted);margin-bottom:32px;max-width:700px;">Post No. 6 opens its doors to a broad coalition of veteran, civic, and community organizations. Sharing our space is part of how we serve.</p>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;">
-
-      <div style="background:var(--white);border-radius:10px;padding:20px 24px;box-shadow:0 2px 12px rgba(0,40,104,.06);border-left:4px solid var(--navy);" class="fade-up">
-        <div style="font-size:1.3rem;margin-bottom:8px;">🎖️</div>
-        <h4 style="font-family:'Merriweather',serif;font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:6px;">VFW Post 9100 — C.V. Cummings</h4>
-        <p style="font-size:.82rem;color:var(--muted);">Veterans of Foreign Wars chapter sharing the Post No. 6 facility, serving Chapel Hill's combat veteran community.</p>
-      </div>
-
-      <div style="background:var(--white);border-radius:10px;padding:20px 24px;box-shadow:0 2px 12px rgba(0,40,104,.06);border-left:4px solid var(--navy);" class="fade-up">
-        <div style="font-size:1.3rem;margin-bottom:8px;">⚓</div>
-        <h4 style="font-family:'Merriweather',serif;font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:6px;">U.S. Coast Guard Auxiliary</h4>
-        <p style="font-size:.82rem;color:var(--muted);">Civilian volunteer corps supporting the U.S. Coast Guard in safety, education, and operational missions in our region.</p>
-      </div>
-
-      <div style="background:var(--white);border-radius:10px;padding:20px 24px;box-shadow:0 2px 12px rgba(0,40,104,.06);border-left:4px solid var(--navy);" class="fade-up">
-        <div style="font-size:1.3rem;margin-bottom:8px;">🇺🇸</div>
-        <h4 style="font-family:'Merriweather',serif;font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:6px;">Vietnam Veterans Association</h4>
-        <p style="font-size:.82rem;color:var(--muted);">Dedicated to the needs of Vietnam-era veterans and their families — ensuring their service and sacrifice are never forgotten.</p>
-      </div>
-
-      <div style="background:var(--white);border-radius:10px;padding:20px 24px;box-shadow:0 2px 12px rgba(0,40,104,.06);border-left:4px solid var(--red);" class="fade-up">
-        <div style="font-size:1.3rem;margin-bottom:8px;">🎣</div>
-        <h4 style="font-family:'Merriweather',serif;font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:6px;">Project Healing Waters</h4>
-        <p style="font-size:.82rem;color:var(--muted);">Fly-fishing therapy program for wounded and disabled veterans and active military, partnering with the VA Medical Center in Durham.</p>
-      </div>
-
-      <div style="background:var(--white);border-radius:10px;padding:20px 24px;box-shadow:0 2px 12px rgba(0,40,104,.06);border-left:4px solid var(--gold);" class="fade-up">
-        <div style="font-size:1.3rem;margin-bottom:8px;">🏕️</div>
-        <h4 style="font-family:'Merriweather',serif;font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:6px;">Boy Scout Troops 505 &amp; Crew 505</h4>
-        <p style="font-size:.82rem;color:var(--muted);">Chartered and sponsored by Post No. 6, helping shape the next generation of leaders through outdoor adventure and civic service.</p>
-      </div>
-
-      <div style="background:var(--white);border-radius:10px;padding:20px 24px;box-shadow:0 2px 12px rgba(0,40,104,.06);border-left:4px solid var(--gold);" class="fade-up">
-        <div style="font-size:1.3rem;margin-bottom:8px;">🎵</div>
-        <h4 style="font-family:'Merriweather',serif;font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:6px;">Bluegrass Jamboree — Fisher House</h4>
-        <p style="font-size:.82rem;color:var(--muted);">Music fundraising project benefiting the Fisher House at Fort Bragg, providing free lodging for families of hospitalized veterans and service members.</p>
-      </div>
-
-      <div style="background:var(--white);border-radius:10px;padding:20px 24px;box-shadow:0 2px 12px rgba(0,40,104,.06);border-left:4px solid var(--red);" class="fade-up">
-        <div style="font-size:1.3rem;margin-bottom:8px;">🚒</div>
-        <h4 style="font-family:'Merriweather',serif;font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:6px;">Chapel Hill Fire Department</h4>
-        <p style="font-size:.82rem;color:var(--muted);">Uses Post No. 6 facilities for training operations, strengthening the relationship between the post and local first responders.</p>
-      </div>
-
-      <div style="background:var(--white);border-radius:10px;padding:20px 24px;box-shadow:0 2px 12px rgba(0,40,104,.06);border-left:4px solid var(--red);" class="fade-up">
-        <div style="font-size:1.3rem;margin-bottom:8px;">🐕</div>
-        <h4 style="font-family:'Merriweather',serif;font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:6px;">Chapel Hill Police Department</h4>
-        <p style="font-size:.82rem;color:var(--muted);">Canine unit training conducted at Post No. 6 grounds, supporting law enforcement readiness in our community.</p>
-      </div>
-
-      <div style="background:var(--white);border-radius:10px;padding:20px 24px;box-shadow:0 2px 12px rgba(0,40,104,.06);border-left:4px solid var(--navy);" class="fade-up">
-        <div style="font-size:1.3rem;margin-bottom:8px;">⚡</div>
-        <h4 style="font-family:'Merriweather',serif;font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:6px;">Duke Power — Emergency Preparedness</h4>
-        <p style="font-size:.82rem;color:var(--muted);">Duke Power uses Post facilities for emergency preparedness planning and training, reflecting the post's commitment to community resilience.</p>
-      </div>
-
     </div>
   </div>
 </section>
@@ -1676,7 +1632,7 @@
         <ul>
           <li><a href="#mission">About &amp; Mission</a></li>
           <li><a href="#programs">Programs</a></li>
-          <li><a href="#organizations">Organizations</a></li>
+          <li><a href="#" class="org-trigger">Organizations</a></li>
           <li><a href="#events">Events &amp; Calendar</a></li>
           <li><a href="#membership">Membership</a></li>
           <li><a href="#fundraisers">Fundraisers</a></li>
@@ -1711,6 +1667,233 @@
     </div>
   </div>
 </footer>
+
+<!-- ══ ORGANIZATIONS MODAL ══════════════════════════════════ -->
+<div id="orgOverlay" class="org-overlay" role="dialog" aria-modal="true" aria-labelledby="orgModalTitle">
+  <div class="org-dialog">
+    <button class="org-close" id="orgClose" aria-label="Close">&times;</button>
+
+    <div class="org-modal-head">
+      <div class="label">Who We Are</div>
+      <h2 class="section-title" id="orgModalTitle">Organizations</h2>
+    </div>
+
+    <!-- Top-level tabs -->
+    <div class="org-tabs" role="tablist">
+      <button class="org-tab-btn active" role="tab" aria-selected="true" data-group="post">Post Organizations</button>
+      <button class="org-tab-btn" role="tab" aria-selected="false" data-group="facility">Organizations Using Post Facilities</button>
+    </div>
+
+    <!-- ── POST ORGANIZATIONS GROUP ── -->
+    <div class="org-panel active" id="orgGroup-post">
+      <div style="display:flex;gap:0;flex-wrap:wrap;margin-bottom:28px;border:1px solid rgba(0,40,104,.12);border-radius:10px;overflow:hidden;">
+        <button class="org-item-btn active" data-detail="aux">🌟 AL Auxiliary</button>
+        <button class="org-item-btn" data-detail="sal">⭐ SAL</button>
+        <button class="org-item-btn" data-detail="riders">🏍️ AL Riders</button>
+        <button class="org-item-btn" data-detail="cruisers">🚗 Post 6 Cruisers</button>
+        <button class="org-item-btn" data-detail="honor">🎖️ Honor Guard</button>
+        <button class="org-item-btn" data-detail="speakers">🎤 Speakers' Bureau</button>
+      </div>
+
+      <div class="org-detail active" id="detail-aux">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top gold"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon gold-bg">🌟</div>
+            <h3>American Legion Auxiliary</h3>
+            <p>A separate women's organization operating alongside Post No. 6. Open to spouses, daughters, granddaughters, sisters, mothers, and grandmothers of eligible veterans.</p>
+            <p style="margin-top:12px;">The Auxiliary is one of the largest patriotic women's organizations in the world, dedicated to supporting veterans, military, and their families. The Unit donates to both veterans in need and to the Post itself, helping fund programs and community outreach.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="detail-sal">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top navy"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon navy-bg">⭐</div>
+            <h3>Sons of the American Legion (SAL)</h3>
+            <p>The SAL is open to male descendants of veterans — sons, grandsons, great-grandsons, stepsons, and adopted sons of eligible American Legion members or deceased veterans.</p>
+            <p style="margin-top:12px;">The SAL continues the Legion's legacy across generations through community service, veteran support, and youth programs. At Post 6, the SAL is active in fundraising events including the annual Pancake Breakfast.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="detail-riders">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top red"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon red-bg">🏍️</div>
+            <h3>American Legion Riders</h3>
+            <p>Motorcycle enthusiasts who raise funds and awareness for veteran causes. Membership is open to American Legion members, Auxiliary members, and SAL members who own or co-own a motorcycle.</p>
+            <p style="margin-top:12px;">The Riders participate in parades, charity runs, and honor escort missions throughout the state, representing Post No. 6 with pride on the road.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="detail-cruisers">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top navy"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon navy-bg">🚗</div>
+            <h3>Post 6 Cruisers</h3>
+            <p>A vehicle enthusiast group connected to the Post, bringing together members who share a passion for classic and specialty automobiles.</p>
+            <p style="margin-top:12px;">The Cruisers support veteran outreach and community events, using their gatherings to raise visibility for the Post and its mission in the Chapel Hill area.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="detail-honor">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top gold"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon gold-bg">🎖️</div>
+            <h3>Post 6 Honor Guard</h3>
+            <p>An elite ceremonial unit recognized as the "Gold Standard" of Department of North Carolina Honor Guards. The Honor Guard performs at military funerals, dedications, post meetings, and community events.</p>
+            <p style="margin-top:12px;">All Post No. 6 members are eligible and encouraged to join. The Honor Guard ensures that every veteran's service is recognized with dignity and respect.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="detail-speakers">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top red"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon red-bg">🎤</div>
+            <h3>Speakers' Bureau</h3>
+            <p>Post members who are available to speak at schools, civic organizations, and community events about the American Legion's mission, veteran issues, and the history of Post No. 6.</p>
+            <p style="margin-top:12px;">The Speakers' Bureau helps build connections between veterans and the broader community, educating the public on the sacrifices and service of America's veterans.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── FACILITY ORGANIZATIONS GROUP ── -->
+    <div class="org-panel" id="orgGroup-facility">
+      <p style="font-size:.92rem;color:var(--muted);margin-bottom:20px;">Post No. 6 opens its doors to a broad coalition of veteran, civic, and community organizations. Sharing our space is part of how we serve.</p>
+      <div style="display:flex;gap:0;flex-wrap:wrap;margin-bottom:28px;border:1px solid rgba(0,40,104,.12);border-radius:10px;overflow:hidden;">
+        <button class="org-item-btn active" data-detail="vfw">🎖️ VFW Post 9100</button>
+        <button class="org-item-btn" data-detail="uscg">⚓ Coast Guard Aux</button>
+        <button class="org-item-btn" data-detail="vva">🇺🇸 Vietnam Vets</button>
+        <button class="org-item-btn" data-detail="phw">🎣 Healing Waters</button>
+        <button class="org-item-btn" data-detail="scouts">🏕️ Boy Scouts</button>
+        <button class="org-item-btn" data-detail="bluegrass">🎵 Bluegrass Jamboree</button>
+        <button class="org-item-btn" data-detail="fire">🚒 Fire Dept</button>
+        <button class="org-item-btn" data-detail="police">🐕 Police Dept</button>
+        <button class="org-item-btn" data-detail="duke">⚡ Duke Power</button>
+      </div>
+
+      <div class="org-detail active" id="detail-vfw">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top navy"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon navy-bg">🎖️</div>
+            <h3>VFW Post 9100 — C.V. Cummings</h3>
+            <p>Veterans of Foreign Wars Post 9100, named for C.V. Cummings, shares the Post No. 6 facility and serves Chapel Hill's combat veteran community.</p>
+            <p style="margin-top:12px;">The VFW focuses specifically on veterans who served in foreign wars, complementing the American Legion's broader membership. The shared facility strengthens the bond between both organizations.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="detail-uscg">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top navy"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon navy-bg">⚓</div>
+            <h3>U.S. Coast Guard Auxiliary</h3>
+            <p>A civilian volunteer corps supporting the U.S. Coast Guard in safety, education, and operational support missions in the region.</p>
+            <p style="margin-top:12px;">The Auxiliary uses Post No. 6 for meetings and coordination, reflecting the Post's commitment to supporting all branches of the armed services and their affiliated organizations.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="detail-vva">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top navy"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon navy-bg">🇺🇸</div>
+            <h3>Vietnam Veterans Association</h3>
+            <p>Dedicated to the needs of Vietnam-era veterans and their families — ensuring their service and sacrifice are never forgotten and that they receive the recognition they deserve.</p>
+            <p style="margin-top:12px;">The VVA meets at Post No. 6, which is honored to provide a home for these veterans and to support the unique challenges they continue to face.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="detail-phw">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top red"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon red-bg">🎣</div>
+            <h3>Project Healing Waters</h3>
+            <p>A fly-fishing therapy program for wounded and disabled veterans and active military personnel, partnering with the VA Medical Center in Durham.</p>
+            <p style="margin-top:12px;">Project Healing Waters uses Post No. 6 as a meeting and coordination point. The program provides free fly-fishing equipment, instruction, and outings to help veterans with their physical and emotional recovery.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="detail-scouts">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top gold"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon gold-bg">🏕️</div>
+            <h3>Boy Scout Troops 505 &amp; Crew 505</h3>
+            <p>Chartered and sponsored by Post No. 6, helping shape the next generation of leaders through outdoor adventure, civic service, and character development.</p>
+            <p style="margin-top:12px;">The Post's sponsorship of Troop 505 and Venturing Crew 505 reflects the American Legion's deep commitment to youth programs and ensuring that young people develop into responsible, patriotic citizens.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="detail-bluegrass">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top gold"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon gold-bg">🎵</div>
+            <h3>Bluegrass Jamboree — Fisher House</h3>
+            <p>A music fundraising project benefiting the Fisher House at Fort Bragg, which provides free lodging for families of hospitalized veterans and service members.</p>
+            <p style="margin-top:12px;">The Bluegrass Jamboree uses Post No. 6 facilities to host concerts and events, bringing the community together through music while raising critical funds for veteran families in their time of need.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="detail-fire">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top red"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon red-bg">🚒</div>
+            <h3>Chapel Hill Fire Department</h3>
+            <p>The Chapel Hill Fire Department uses Post No. 6 facilities for training operations and exercises, strengthening the relationship between the Post and local first responders.</p>
+            <p style="margin-top:12px;">This partnership reflects Post No. 6's commitment to serving the broader community and supporting those who protect Chapel Hill every day.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="detail-police">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top red"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon red-bg">🐕</div>
+            <h3>Chapel Hill Police Department</h3>
+            <p>The Chapel Hill Police Department's canine unit conducts training on Post No. 6 grounds, supporting law enforcement readiness and community safety.</p>
+            <p style="margin-top:12px;">Post No. 6 is proud to provide space that helps keep Chapel Hill's officers and their K-9 partners trained and prepared to protect the community.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="detail-duke">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top navy"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon navy-bg">⚡</div>
+            <h3>Duke Power — Emergency Preparedness</h3>
+            <p>Duke Power uses Post No. 6 facilities for emergency preparedness planning and training sessions, reflecting the Post's commitment to community resilience and readiness.</p>
+            <p style="margin-top:12px;">This partnership ensures that regional utility emergency response teams have a well-equipped, central location to coordinate their preparedness efforts for the Chapel Hill area.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 <!-- ══ SCRIPTS ════════════════════════════════════════════════ -->
 <script>
@@ -1761,6 +1944,58 @@
 
   // Hero fades in immediately
   document.querySelector('#hero .fade-up').classList.add('visible');
+
+  // ── ORGANIZATIONS MODAL ────────────────────────────────────
+  const orgOverlay = document.getElementById('orgOverlay');
+  const orgClose   = document.getElementById('orgClose');
+
+  function openOrg() {
+    orgOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeOrg() {
+    orgOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.org-trigger').forEach(el => {
+    el.addEventListener('click', e => {
+      e.preventDefault();
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('open');
+      openOrg();
+    });
+  });
+
+  orgClose.addEventListener('click', closeOrg);
+  orgOverlay.addEventListener('click', e => { if (e.target === orgOverlay) closeOrg(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeOrg(); });
+
+  // Top-level group tabs
+  document.querySelectorAll('.org-tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.org-tab-btn').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      document.querySelectorAll('.org-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('orgGroup-' + btn.dataset.group).classList.add('active');
+    });
+  });
+
+  // Individual org item buttons
+  document.querySelectorAll('.org-item-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Deactivate siblings in the same group
+      const group = btn.closest('.org-panel');
+      group.querySelectorAll('.org-item-btn').forEach(b => b.classList.remove('active'));
+      group.querySelectorAll('.org-detail').forEach(d => d.classList.remove('active'));
+      btn.classList.add('active');
+      group.querySelector('#detail-' + btn.dataset.detail).classList.add('active');
+    });
+  });
 </script>
 
 </body>
