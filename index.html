@@ -902,7 +902,7 @@
 
       <nav>
         <a href="#mission">About</a>
-        <a href="#" class="mission-trigger">Mission</a>
+        <a href="#" class="home-trigger">Home</a>
         <a href="#programs">Programs</a>
         <a href="#" class="org-trigger">Organizations</a>
         <a href="#" class="heroes-trigger">Our Heroes</a>
@@ -928,7 +928,7 @@
 <!-- Mobile Nav -->
 <div class="mobile-nav" id="mobileNav">
   <a href="#mission" class="mob-link">About</a>
-  <a href="#" class="mob-link mission-trigger">Mission</a>
+  <a href="#" class="mob-link home-trigger">Home</a>
   <a href="#programs" class="mob-link">Programs</a>
   <a href="#" class="mob-link org-trigger">Organizations</a>
   <a href="#" class="mob-link heroes-trigger">Our Heroes</a>
@@ -1676,24 +1676,24 @@
   </div>
 </footer>
 
-<!-- ══ MISSION MODAL ═════════════════════════════════════════ -->
-<div id="missionOverlay" class="org-overlay" role="dialog" aria-modal="true" aria-labelledby="missionModalTitle">
+<!-- ══ HOME MODAL ════════════════════════════════════════════ -->
+<div id="homeOverlay" class="org-overlay" role="dialog" aria-modal="true" aria-labelledby="homeModalTitle">
   <div class="org-dialog">
-    <button class="org-close mission-close" aria-label="Close">&times;</button>
+    <button class="org-close home-close" aria-label="Close">&times;</button>
 
     <div class="org-modal-head">
       <div class="label">American Legion Post No. 6</div>
-      <h2 class="section-title" id="missionModalTitle">Our Mission</h2>
-      <p class="section-sub">Rooted in the preamble to the Constitution of the American Legion — the foundation of everything we do in Chapel Hill since 1919.</p>
+      <h2 class="section-title" id="homeModalTitle">Home</h2>
+      <p class="section-sub">Chapel Hill Post No. 6 — serving veterans and their families since 1919. Explore our mission and the four pillars that guide everything we do.</p>
     </div>
 
     <div class="org-tabs" role="tablist">
-      <button class="org-tab-btn active" role="tab" aria-selected="true" data-mission-group="statement">Mission Statement</button>
-      <button class="org-tab-btn" role="tab" aria-selected="false" data-mission-group="commitment">Our Commitment</button>
+      <button class="org-tab-btn active" role="tab" aria-selected="true" data-home-group="mission">Mission</button>
+      <button class="org-tab-btn" role="tab" aria-selected="false" data-home-group="pillars">Four Pillars</button>
     </div>
 
-    <!-- MISSION STATEMENT TAB -->
-    <div class="org-panel active" id="missionGroup-statement">
+    <!-- MISSION TAB -->
+    <div class="org-panel active" id="homeGroup-mission">
       <div style="display:flex;gap:0;flex-wrap:wrap;margin-bottom:28px;border:1px solid rgba(0,40,104,.12);border-radius:10px;overflow:hidden;">
         <button class="org-item-btn active" data-ms="preamble">📜 The Preamble</button>
         <button class="org-item-btn" data-ms="purpose">🎯 Core Purposes</button>
@@ -1749,7 +1749,7 @@
     </div>
 
     <!-- OUR COMMITMENT TAB -->
-    <div class="org-panel" id="missionGroup-commitment">
+    <div class="org-panel" id="homeGroup-commitment">
       <div style="display:flex;gap:0;flex-wrap:wrap;margin-bottom:28px;border:1px solid rgba(0,40,104,.12);border-radius:10px;overflow:hidden;">
         <button class="org-item-btn active" data-mc="mission">🎯 Our Mission</button>
         <button class="org-item-btn" data-mc="members">👥 Growing Membership</button>
@@ -1793,8 +1793,66 @@
             <p>We also want to take time to enjoy the fellowship of those who have served their country. Now that we are home, there is much for us to do together working on projects.</p>
             <p style="margin-top:12px;">From monthly socials and dinners to community projects and veteran outreach, Post No. 6 is a place where veterans find camaraderie, purpose, and the satisfaction of continued service — right here in Chapel Hill.</p>
             <div style="margin-top:20px;">
-              <a href="#contact" class="btn btn-navy" style="font-size:.83rem;padding:10px 18px;" onclick="document.getElementById('missionOverlay').classList.remove('open');document.body.style.overflow='';">Visit Us &rarr;</a>
+              <a href="#contact" class="btn btn-navy" style="font-size:.83rem;padding:10px 18px;" onclick="closeModal(document.getElementById('homeOverlay'));">Visit Us &rarr;</a>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOUR PILLARS TAB -->
+    <div class="org-panel" id="homeGroup-pillars">
+      <div style="display:flex;gap:0;flex-wrap:wrap;margin-bottom:28px;border:1px solid rgba(0,40,104,.12);border-radius:10px;overflow:hidden;">
+        <button class="org-item-btn active" data-pillar="rehab">01 Veterans Affairs</button>
+        <button class="org-item-btn" data-pillar="security">02 National Security</button>
+        <button class="org-item-btn" data-pillar="americanism">03 Americanism</button>
+        <button class="org-item-btn" data-pillar="youth">04 Children &amp; Youth</button>
+      </div>
+
+      <div class="org-detail active" id="pillar-rehab">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top gold"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon gold-bg" style="font-size:1.6rem;font-family:'Merriweather',serif;font-weight:900;color:var(--red);">01</div>
+            <h3>Veterans Affairs &amp; Rehabilitation</h3>
+            <p>Ensuring every veteran receives the care and benefits they have earned through their service. The American Legion has been the leading advocate for veterans' rights since its founding in 1919.</p>
+            <p style="margin-top:12px;">Post No. 6 provides direct assistance through our accredited Veterans Service Officer (VSO), who helps members and non-members navigate VA claims, disability compensation, pension benefits, and healthcare enrollment — all at no charge.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="pillar-security">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top navy"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon navy-bg" style="font-size:1.6rem;font-family:'Merriweather',serif;font-weight:900;color:var(--red);">02</div>
+            <h3>National Security</h3>
+            <p>Supporting a strong, well-prepared national defense. The American Legion believes that a robust military capability is essential to preserving peace and protecting the freedoms that veterans fought to defend.</p>
+            <p style="margin-top:12px;">Post No. 6 advocates for adequate defense funding, proper care for active-duty service members, and policies that honor the sacrifices of those who wear the uniform today and those who have worn it in the past.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="pillar-americanism">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top red"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon red-bg" style="font-size:1.6rem;font-family:'Merriweather',serif;font-weight:900;color:var(--red);">03</div>
+            <h3>Americanism</h3>
+            <p>Promoting patriotism, youth programs, and civic responsibility throughout the community. Americanism means fostering love of country, respect for the flag, and active participation in the democratic process.</p>
+            <p style="margin-top:12px;">Post No. 6 promotes Americanism through our Boys State scholarship program, the Oratorical Contest, flag retirement ceremonies, the Speakers' Bureau, and community events that celebrate American values and history.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="pillar-youth">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top gold"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon gold-bg" style="font-size:1.6rem;font-family:'Merriweather',serif;font-weight:900;color:var(--red);">04</div>
+            <h3>Children &amp; Youth</h3>
+            <p>Investing in the next generation through scouting, Boys State, and scholarships. The American Legion believes that strong youth programs are the foundation of a strong nation.</p>
+            <p style="margin-top:12px;">Post No. 6 sponsors Boy Scout Troops 505 and Crew 505, funds Boys and Girls State leadership scholarships, hosts the annual Oratorical Contest, and supports youth baseball — giving Chapel Hill's young people the skills, values, and opportunities they need to become tomorrow's leaders.</p>
           </div>
         </div>
       </div>
@@ -2488,23 +2546,23 @@
     mobileNav.classList.remove('open');
   }
 
-  // ── MISSION MODAL ─────────────────────────────────────────
-  const missionOverlay = document.getElementById('missionOverlay');
-  bindModalClose(missionOverlay, missionOverlay.querySelector('.mission-close'));
-  document.querySelectorAll('.mission-trigger').forEach(el => {
-    el.addEventListener('click', e => { e.preventDefault(); closeMobileMenu(); openModal(missionOverlay); });
+  // ── HOME MODAL (Mission + Four Pillars) ───────────────────
+  const homeOverlay = document.getElementById('homeOverlay');
+  bindModalClose(homeOverlay, homeOverlay.querySelector('.home-close'));
+  document.querySelectorAll('.home-trigger').forEach(el => {
+    el.addEventListener('click', e => { e.preventDefault(); closeMobileMenu(); openModal(homeOverlay); });
   });
-  // mission top tabs
-  document.querySelectorAll('[data-mission-group]').forEach(btn => {
+  // home top tabs
+  document.querySelectorAll('[data-home-group]').forEach(btn => {
     btn.addEventListener('click', () => {
-      missionOverlay.querySelectorAll('[data-mission-group]').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+      homeOverlay.querySelectorAll('[data-home-group]').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
       btn.classList.add('active'); btn.setAttribute('aria-selected','true');
-      missionOverlay.querySelectorAll('.org-panel').forEach(p => p.classList.remove('active'));
-      document.getElementById('missionGroup-' + btn.dataset.missionGroup).classList.add('active');
+      homeOverlay.querySelectorAll('.org-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('homeGroup-' + btn.dataset.homeGroup).classList.add('active');
     });
   });
   // mission statement item buttons
-  missionOverlay.querySelectorAll('[data-ms]').forEach(btn => {
+  homeOverlay.querySelectorAll('[data-ms]').forEach(btn => {
     btn.addEventListener('click', () => {
       const group = btn.closest('.org-panel');
       group.querySelectorAll('[data-ms]').forEach(b => b.classList.remove('active'));
@@ -2514,13 +2572,23 @@
     });
   });
   // our commitment item buttons
-  missionOverlay.querySelectorAll('[data-mc]').forEach(btn => {
+  homeOverlay.querySelectorAll('[data-mc]').forEach(btn => {
     btn.addEventListener('click', () => {
       const group = btn.closest('.org-panel');
       group.querySelectorAll('[data-mc]').forEach(b => b.classList.remove('active'));
       group.querySelectorAll('.org-detail').forEach(d => d.classList.remove('active'));
       btn.classList.add('active');
       group.querySelector('#mc-' + btn.dataset.mc).classList.add('active');
+    });
+  });
+  // four pillars item buttons
+  homeOverlay.querySelectorAll('[data-pillar]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const group = btn.closest('.org-panel');
+      group.querySelectorAll('[data-pillar]').forEach(b => b.classList.remove('active'));
+      group.querySelectorAll('.org-detail').forEach(d => d.classList.remove('active'));
+      btn.classList.add('active');
+      group.querySelector('#pillar-' + btn.dataset.pillar).classList.add('active');
     });
   });
 
