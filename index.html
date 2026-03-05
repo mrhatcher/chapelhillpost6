@@ -902,6 +902,7 @@
 
       <nav>
         <a href="#mission">About</a>
+        <a href="#" class="mission-trigger">Mission</a>
         <a href="#programs">Programs</a>
         <a href="#" class="org-trigger">Organizations</a>
         <a href="#" class="heroes-trigger">Our Heroes</a>
@@ -927,6 +928,7 @@
 <!-- Mobile Nav -->
 <div class="mobile-nav" id="mobileNav">
   <a href="#mission" class="mob-link">About</a>
+  <a href="#" class="mob-link mission-trigger">Mission</a>
   <a href="#programs" class="mob-link">Programs</a>
   <a href="#" class="mob-link org-trigger">Organizations</a>
   <a href="#" class="mob-link heroes-trigger">Our Heroes</a>
@@ -1674,6 +1676,133 @@
   </div>
 </footer>
 
+<!-- ══ MISSION MODAL ═════════════════════════════════════════ -->
+<div id="missionOverlay" class="org-overlay" role="dialog" aria-modal="true" aria-labelledby="missionModalTitle">
+  <div class="org-dialog">
+    <button class="org-close mission-close" aria-label="Close">&times;</button>
+
+    <div class="org-modal-head">
+      <div class="label">American Legion Post No. 6</div>
+      <h2 class="section-title" id="missionModalTitle">Our Mission</h2>
+      <p class="section-sub">Rooted in the preamble to the Constitution of the American Legion — the foundation of everything we do in Chapel Hill since 1919.</p>
+    </div>
+
+    <div class="org-tabs" role="tablist">
+      <button class="org-tab-btn active" role="tab" aria-selected="true" data-mission-group="statement">Mission Statement</button>
+      <button class="org-tab-btn" role="tab" aria-selected="false" data-mission-group="commitment">Our Commitment</button>
+    </div>
+
+    <!-- MISSION STATEMENT TAB -->
+    <div class="org-panel active" id="missionGroup-statement">
+      <div style="display:flex;gap:0;flex-wrap:wrap;margin-bottom:28px;border:1px solid rgba(0,40,104,.12);border-radius:10px;overflow:hidden;">
+        <button class="org-item-btn active" data-ms="preamble">📜 The Preamble</button>
+        <button class="org-item-btn" data-ms="purpose">🎯 Core Purposes</button>
+      </div>
+
+      <div class="org-detail active" id="ms-preamble">
+        <div class="prog-card" style="max-width:720px;">
+          <div class="prog-card-top gold"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon gold-bg">📜</div>
+            <h3>Preamble to the Constitution of the American Legion</h3>
+            <p style="font-style:italic;font-size:1rem;line-height:1.8;color:var(--navy);border-left:4px solid var(--gold);padding-left:20px;margin-top:12px;">
+              "For God and Country we associate ourselves together for the following purposes: To uphold and defend the Constitution of the United States of America; to maintain law and order; to foster and perpetuate a one-hundred percent Americanism; to preserve the memories and incidents of our association in the Great Wars; to inculcate a sense of individual obligation to the community, state and nation; to combat the autocracy of both the classes and the masses; to make right the master of might; to promote peace and good will on earth; to safeguard and transmit to posterity the principles of justice, freedom and democracy; to consecrate and sanctify our comradeship by our devotion to mutual helpfulness."
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="ms-purpose">
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;max-width:760px;">
+          <div style="background:var(--white);border-radius:10px;padding:20px 24px;box-shadow:0 2px 12px rgba(0,40,104,.06);border-left:4px solid var(--gold);">
+            <div style="font-size:1.3rem;margin-bottom:8px;">🇺🇸</div>
+            <h4 style="font-family:'Merriweather',serif;font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:6px;">Uphold the Constitution</h4>
+            <p style="font-size:.82rem;color:var(--muted);">Defend the Constitution of the United States and maintain law and order in our communities.</p>
+          </div>
+          <div style="background:var(--white);border-radius:10px;padding:20px 24px;box-shadow:0 2px 12px rgba(0,40,104,.06);border-left:4px solid var(--navy);">
+            <div style="font-size:1.3rem;margin-bottom:8px;">🎖️</div>
+            <h4 style="font-family:'Merriweather',serif;font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:6px;">Preserve the Memory</h4>
+            <p style="font-size:.82rem;color:var(--muted);">Honor the memories and sacrifices of those who served in the Great Wars and all conflicts.</p>
+          </div>
+          <div style="background:var(--white);border-radius:10px;padding:20px 24px;box-shadow:0 2px 12px rgba(0,40,104,.06);border-left:4px solid var(--red);">
+            <div style="font-size:1.3rem;margin-bottom:8px;">🕊️</div>
+            <h4 style="font-family:'Merriweather',serif;font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:6px;">Promote Peace</h4>
+            <p style="font-size:.82rem;color:var(--muted);">Foster peace and goodwill on earth, making right the master of might.</p>
+          </div>
+          <div style="background:var(--white);border-radius:10px;padding:20px 24px;box-shadow:0 2px 12px rgba(0,40,104,.06);border-left:4px solid var(--gold);">
+            <div style="font-size:1.3rem;margin-bottom:8px;">🤝</div>
+            <h4 style="font-family:'Merriweather',serif;font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:6px;">Mutual Helpfulness</h4>
+            <p style="font-size:.82rem;color:var(--muted);">Consecrate our comradeship by devotion to mutual helpfulness among all veterans and members.</p>
+          </div>
+          <div style="background:var(--white);border-radius:10px;padding:20px 24px;box-shadow:0 2px 12px rgba(0,40,104,.06);border-left:4px solid var(--navy);">
+            <div style="font-size:1.3rem;margin-bottom:8px;">⚖️</div>
+            <h4 style="font-family:'Merriweather',serif;font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:6px;">Justice &amp; Democracy</h4>
+            <p style="font-size:.82rem;color:var(--muted);">Safeguard and transmit to posterity the principles of justice, freedom, and democracy.</p>
+          </div>
+          <div style="background:var(--white);border-radius:10px;padding:20px 24px;box-shadow:0 2px 12px rgba(0,40,104,.06);border-left:4px solid var(--red);">
+            <div style="font-size:1.3rem;margin-bottom:8px;">🏛️</div>
+            <h4 style="font-family:'Merriweather',serif;font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:6px;">Civic Obligation</h4>
+            <p style="font-size:.82rem;color:var(--muted);">Inculcate a sense of individual obligation to the community, state, and nation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OUR COMMITMENT TAB -->
+    <div class="org-panel" id="missionGroup-commitment">
+      <div style="display:flex;gap:0;flex-wrap:wrap;margin-bottom:28px;border:1px solid rgba(0,40,104,.12);border-radius:10px;overflow:hidden;">
+        <button class="org-item-btn active" data-mc="mission">🎯 Our Mission</button>
+        <button class="org-item-btn" data-mc="members">👥 Growing Membership</button>
+        <button class="org-item-btn" data-mc="fellowship">🤝 Fellowship &amp; Service</button>
+      </div>
+
+      <div class="org-detail active" id="mc-mission">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top gold"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon gold-bg">🎯</div>
+            <h3>Our Mission</h3>
+            <p>Our mission is to further promote the interests of our organization and our members by fulfilling the mission of the American Legion, as stated in our constitution's preamble, within our community.</p>
+            <p style="margin-top:12px;">Chapel Hill Post No. 6 has been living this mission since 1919 — serving veterans, supporting families, and strengthening the community we call home.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="mc-members">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top navy"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon navy-bg">👥</div>
+            <h3>Growing Our Membership</h3>
+            <p>We seek to add new members so that we will be able to grow and serve area veterans — both members and non-members.</p>
+            <p style="margin-top:12px;">A larger, stronger Post means more resources to serve veterans in Chapel Hill and Orange County. Whether you're a veteran yourself or a family member of one who served, there's a place for you at Post No. 6.</p>
+            <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;">
+              <a href="https://mylegion.org/personifyebusiness/Membership/Join/MembershipJoinRegistration/ProductId/134075/RateCode/DMS_1YR_RATE4/sourcecode/OLJOIN045#mylegion" target="_blank" rel="noopener" class="btn btn-gold" style="font-size:.83rem;padding:10px 18px;">Join Online</a>
+              <a href="mailto:adjutant@alpost6.org" class="btn" style="font-size:.83rem;padding:10px 18px;background:var(--gray);color:var(--navy);border:2px solid var(--navy);">Contact the Post</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="mc-fellowship">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top red"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon red-bg">🤝</div>
+            <h3>Fellowship &amp; Service</h3>
+            <p>We also want to take time to enjoy the fellowship of those who have served their country. Now that we are home, there is much for us to do together working on projects.</p>
+            <p style="margin-top:12px;">From monthly socials and dinners to community projects and veteran outreach, Post No. 6 is a place where veterans find camaraderie, purpose, and the satisfaction of continued service — right here in Chapel Hill.</p>
+            <div style="margin-top:20px;">
+              <a href="#contact" class="btn btn-navy" style="font-size:.83rem;padding:10px 18px;" onclick="document.getElementById('missionOverlay').classList.remove('open');document.body.style.overflow='';">Visit Us &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <!-- ══ OUR HEROES MODAL ══════════════════════════════════════ -->
 <div id="heroesOverlay" class="org-overlay" role="dialog" aria-modal="true" aria-labelledby="heroesModalTitle">
   <div class="org-dialog">
@@ -2358,6 +2487,42 @@
     hamburger.classList.remove('open');
     mobileNav.classList.remove('open');
   }
+
+  // ── MISSION MODAL ─────────────────────────────────────────
+  const missionOverlay = document.getElementById('missionOverlay');
+  bindModalClose(missionOverlay, missionOverlay.querySelector('.mission-close'));
+  document.querySelectorAll('.mission-trigger').forEach(el => {
+    el.addEventListener('click', e => { e.preventDefault(); closeMobileMenu(); openModal(missionOverlay); });
+  });
+  // mission top tabs
+  document.querySelectorAll('[data-mission-group]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      missionOverlay.querySelectorAll('[data-mission-group]').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+      btn.classList.add('active'); btn.setAttribute('aria-selected','true');
+      missionOverlay.querySelectorAll('.org-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('missionGroup-' + btn.dataset.missionGroup).classList.add('active');
+    });
+  });
+  // mission statement item buttons
+  missionOverlay.querySelectorAll('[data-ms]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const group = btn.closest('.org-panel');
+      group.querySelectorAll('[data-ms]').forEach(b => b.classList.remove('active'));
+      group.querySelectorAll('.org-detail').forEach(d => d.classList.remove('active'));
+      btn.classList.add('active');
+      group.querySelector('#ms-' + btn.dataset.ms).classList.add('active');
+    });
+  });
+  // our commitment item buttons
+  missionOverlay.querySelectorAll('[data-mc]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const group = btn.closest('.org-panel');
+      group.querySelectorAll('[data-mc]').forEach(b => b.classList.remove('active'));
+      group.querySelectorAll('.org-detail').forEach(d => d.classList.remove('active'));
+      btn.classList.add('active');
+      group.querySelector('#mc-' + btn.dataset.mc).classList.add('active');
+    });
+  });
 
   // ── OUR HEROES MODAL ──────────────────────────────────────
   const heroesOverlay = document.getElementById('heroesOverlay');
