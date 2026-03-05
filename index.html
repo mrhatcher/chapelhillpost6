@@ -904,9 +904,12 @@
         <a href="#mission">About</a>
         <a href="#programs">Programs</a>
         <a href="#" class="org-trigger">Organizations</a>
+        <a href="#" class="heroes-trigger">Our Heroes</a>
         <a href="#events">Events</a>
         <a href="https://chapelhillpost6.com/news/calendar/" target="_blank" rel="noopener noreferrer">Calendar</a>
         <a href="#membership">Membership</a>
+        <a href="#" class="help-trigger">Help</a>
+        <a href="#" class="museum-trigger">Museum</a>
         <a href="#rentals">Rentals</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -926,10 +929,13 @@
   <a href="#mission" class="mob-link">About</a>
   <a href="#programs" class="mob-link">Programs</a>
   <a href="#" class="mob-link org-trigger">Organizations</a>
+  <a href="#" class="mob-link heroes-trigger">Our Heroes</a>
   <a href="#events" class="mob-link">Events</a>
   <a href="https://chapelhillpost6.com/news/calendar/" target="_blank" rel="noopener noreferrer" class="mob-link">Calendar</a>
   <a href="#membership" class="mob-link">Membership</a>
   <a href="#fundraisers" class="mob-link">Fundraisers</a>
+  <a href="#" class="mob-link help-trigger">Help</a>
+  <a href="#" class="mob-link museum-trigger">Museum</a>
   <a href="#rentals" class="mob-link">Rentals</a>
   <a href="#contact" class="mob-link">Contact</a>
 </div>
@@ -1668,6 +1674,391 @@
   </div>
 </footer>
 
+<!-- ══ OUR HEROES MODAL ══════════════════════════════════════ -->
+<div id="heroesOverlay" class="org-overlay" role="dialog" aria-modal="true" aria-labelledby="heroesModalTitle">
+  <div class="org-dialog">
+    <button class="org-close heroes-close" aria-label="Close">&times;</button>
+
+    <div class="org-modal-head">
+      <div class="label">Honoring Those Who Served</div>
+      <h2 class="section-title" id="heroesModalTitle">Our Heroes</h2>
+      <p class="section-sub">Celebrating the wartime service members and veterans who have returned to strengthen Chapel Hill. <em>Working for others — that's what we do.</em></p>
+    </div>
+
+    <div class="org-tabs" role="tablist">
+      <button class="org-tab-btn active" role="tab" aria-selected="true" data-heroes-group="featured">Featured Veterans</button>
+      <button class="org-tab-btn" role="tab" aria-selected="false" data-heroes-group="nominate">Nominate a Hero</button>
+    </div>
+
+    <!-- FEATURED VETERANS -->
+    <div class="org-panel active" id="heroesGroup-featured">
+      <div style="display:flex;gap:0;flex-wrap:wrap;margin-bottom:28px;border:1px solid rgba(0,40,104,.12);border-radius:10px;overflow:hidden;">
+        <button class="org-item-btn active" data-hero="mackorell">🎖️ Jim &amp; June Mackorell</button>
+        <button class="org-item-btn" data-hero="heavlin">🎖️ Lee Heavlin</button>
+        <button class="org-item-btn" data-hero="hampton">🎖️ Maj. Bud Hampton</button>
+        <button class="org-item-btn" data-hero="bauman">🎖️ Robert Bauman</button>
+        <button class="org-item-btn" data-hero="dingfelder">🎖️ Dr. James Dingfelder</button>
+      </div>
+
+      <div class="org-detail active" id="hero-mackorell">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top gold"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon gold-bg">🎖️</div>
+            <h3>Jim &amp; June Mackorell</h3>
+            <p>Jim and June Mackorell have been pillars of Chapel Hill Post No. 6 for decades. Jim's military service and his continued dedication to the Post's mission reflect the best of what the American Legion stands for.</p>
+            <p style="margin-top:12px;">Together, Jim and June have devoted countless hours to veteran outreach, community events, and supporting fellow members through hardship. Their partnership is a testament to the Legion's commitment to family, service, and community.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="hero-heavlin">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top navy"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon navy-bg">🎖️</div>
+            <h3>Lee Heavlin</h3>
+            <p>Lee Heavlin is a distinguished veteran and long-time member of Post No. 6 whose service to both country and community has left an indelible mark on Chapel Hill.</p>
+            <p style="margin-top:12px;">After his military career, Lee channeled his dedication into local veteran advocacy, helping fellow veterans navigate benefits and ensuring their stories are heard and honored.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="hero-hampton">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top red"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon red-bg">🎖️</div>
+            <h3>Major Everett "Bud" Hampton</h3>
+            <p>Major Everett "Bud" Hampton served his country with distinction, and his legacy continues through the work of Post No. 6 in Chapel Hill. His leadership during his military service set the standard for those who followed.</p>
+            <p style="margin-top:12px;">Major Hampton's contributions to the Post — from ceremonial duties to mentoring younger veterans — exemplify the spirit of service above self that defines the American Legion's highest ideals.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="hero-bauman">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top gold"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon gold-bg">🎖️</div>
+            <h3>Robert Bauman</h3>
+            <p>Robert Bauman's military career and subsequent service to Post No. 6 have made him one of Chapel Hill's most respected veterans. His commitment to honoring fellow veterans through the Post's Honor Guard is widely recognized.</p>
+            <p style="margin-top:12px;">Robert continues to be an active voice for veterans' rights and a bridge between the Post and the broader Chapel Hill community, ensuring that the American Legion's mission reaches those who need it most.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="hero-dingfelder">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top navy"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon navy-bg">🎖️</div>
+            <h3>Dr. James R. Dingfelder</h3>
+            <p>Dr. James R. Dingfelder has combined a distinguished professional career with a deep commitment to veteran service at Post No. 6. His unique perspective as both a veteran and a medical professional has been invaluable to the Post.</p>
+            <p style="margin-top:12px;">Dr. Dingfelder has been instrumental in connecting veterans with health resources and advocating for improved veteran healthcare in the Chapel Hill area, bridging the gap between military service and civilian medical care.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NOMINATE -->
+    <div class="org-panel" id="heroesGroup-nominate">
+      <div class="prog-card" style="max-width:680px;">
+        <div class="prog-card-top gold"></div>
+        <div class="prog-card-body">
+          <div class="prog-icon gold-bg">⭐</div>
+          <h3>Nominate a Hero</h3>
+          <p>Do you know a veteran or service member from the Chapel Hill area whose story deserves to be told? Post No. 6 is always looking to honor the men and women who have served our country.</p>
+          <p style="margin-top:12px;">To nominate someone for our "Our Heroes" spotlight, contact the Post adjutant with the veteran's name, branch of service, and a brief summary of their service and community contributions.</p>
+          <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;">
+            <a href="mailto:adjutant@alpost6.org" class="btn btn-navy" style="font-size:.85rem;padding:12px 22px;">Contact the Adjutant</a>
+            <a href="tel:+19195378703" class="btn" style="font-size:.85rem;padding:12px 22px;background:var(--gray);color:var(--navy);border:2px solid var(--navy);">(919) 537-8703</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ HELP MODAL ════════════════════════════════════════════ -->
+<div id="helpOverlay" class="org-overlay" role="dialog" aria-modal="true" aria-labelledby="helpModalTitle">
+  <div class="org-dialog">
+    <button class="org-close help-close" aria-label="Close">&times;</button>
+
+    <div class="org-modal-head">
+      <div class="label">Veteran Resources</div>
+      <h2 class="section-title" id="helpModalTitle">Help &amp; Resources</h2>
+      <p class="section-sub">Post No. 6 connects veterans and their families with the benefits, support, and services they've earned. Select a topic below to learn more.</p>
+    </div>
+
+    <div class="org-tabs" role="tablist">
+      <button class="org-tab-btn active" role="tab" aria-selected="true" data-help-group="benefits">Benefits &amp; Claims</button>
+      <button class="org-tab-btn" role="tab" aria-selected="false" data-help-group="support">Support Services</button>
+    </div>
+
+    <!-- BENEFITS & CLAIMS -->
+    <div class="org-panel active" id="helpGroup-benefits">
+      <div style="display:flex;gap:0;flex-wrap:wrap;margin-bottom:28px;border:1px solid rgba(0,40,104,.12);border-radius:10px;overflow:hidden;">
+        <button class="org-item-btn active" data-help="headstones">🪦 Headstones &amp; Markers</button>
+        <button class="org-item-btn" data-help="agentorange">🍊 Agent Orange</button>
+        <button class="org-item-btn" data-help="vso">🎖️ VA Benefits / VSO</button>
+        <button class="org-item-btn" data-help="financial">💰 Financial Aid</button>
+      </div>
+
+      <div class="org-detail active" id="help-headstones">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top gold"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon gold-bg">🪦</div>
+            <h3>Headstones &amp; Grave Markers</h3>
+            <p>The Department of Veterans Affairs provides headstones, grave markers, and medallions to memorialize eligible veterans. This benefit is available at no cost to the veteran's family.</p>
+            <p style="margin-top:12px;"><strong>How to apply:</strong> Submit VA Form 40-1330 (Application for Standard Government Headstone or Marker). Post No. 6's Veterans Service Officer can assist with completing the form. Contact us at <a href="mailto:adjutant@alpost6.org" style="color:var(--navy);font-weight:700;">adjutant@alpost6.org</a> for help.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="help-agentorange">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top red"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon red-bg">🍊</div>
+            <h3>Agent Orange Claims</h3>
+            <p>Veterans who were exposed to Agent Orange during their military service may be entitled to disability compensation, health care, and other benefits from the VA.</p>
+            <p style="margin-top:12px;"><strong>Navy veterans:</strong> The VA maintains a database of ships that operated in Vietnam-era waters. If your ship is on the list, you may qualify for Agent Orange-related benefits even if you never set foot on Vietnamese soil. Our VSO can help you check your eligibility and file a claim.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="help-vso">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top navy"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon navy-bg">🎖️</div>
+            <h3>VA Benefits &amp; Veterans Service Officer</h3>
+            <p>Post No. 6 has an accredited Veterans Service Officer (VSO) who can assist veterans and their families at no charge with VA claims, appeals, pension applications, and other benefits.</p>
+            <p style="margin-top:12px;">Services include: disability compensation claims, survivor benefits (DIC), GI Bill education benefits, VA home loan certificates, and healthcare enrollment. Contact the Post to schedule an appointment with our VSO.</p>
+            <div style="margin-top:16px;">
+              <a href="mailto:adjutant@alpost6.org" class="btn btn-navy" style="font-size:.83rem;padding:10px 18px;">Schedule VSO Appointment</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="help-financial">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top gold"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon gold-bg">💰</div>
+            <h3>Financial Aid for Veterans</h3>
+            <p>Veterans and their families facing financial hardship may be eligible for assistance through the American Legion, the VA, and other programs. Post No. 6 can connect you with the right resources.</p>
+            <p style="margin-top:12px;">Available programs include: Temporary Financial Assistance (TFA) for families with children, the American Legion's National Emergency Fund, state and local emergency assistance programs, and VA pension benefits for low-income veterans.</p>
+            <div style="margin-top:16px;">
+              <a href="mailto:adjutant@alpost6.org" class="btn btn-navy" style="font-size:.83rem;padding:10px 18px;">Request Assistance Info</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUPPORT SERVICES -->
+    <div class="org-panel" id="helpGroup-support">
+      <div style="display:flex;gap:0;flex-wrap:wrap;margin-bottom:28px;border:1px solid rgba(0,40,104,.12);border-radius:10px;overflow:hidden;">
+        <button class="org-item-btn active" data-help2="families">👨‍👩‍👧 Military Families</button>
+        <button class="org-item-btn" data-help2="flag">🇺🇸 Flag Etiquette</button>
+        <button class="org-item-btn" data-help2="funeral">⚰️ Funeral Assistance</button>
+        <button class="org-item-btn" data-help2="membership">📋 Membership</button>
+      </div>
+
+      <div class="org-detail active" id="help2-families">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top navy"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon navy-bg">👨‍👩‍👧</div>
+            <h3>Military Families &amp; Support Groups</h3>
+            <p>UNC-Chapel Hill offers group therapy and counseling services specifically for military families, veterans, and their loved ones. These services are available through the UNC Department of Psychiatry.</p>
+            <p style="margin-top:12px;">Post No. 6 also connects military families with community resources, peer support networks, and referrals to local mental health professionals experienced in veteran and military family issues. Contact the Post for current program schedules and enrollment information.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="help2-flag">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top red"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon red-bg">🇺🇸</div>
+            <h3>Flag Etiquette</h3>
+            <p>The American Legion has long been the guardian of proper U.S. flag etiquette. Key guidelines include: the flag should never touch the ground; it should be displayed from sunrise to sunset; and it should be illuminated if displayed at night.</p>
+            <p style="margin-top:12px;">Post No. 6 conducts respectful flag retirement ceremonies for worn or damaged flags. Bring your worn flag to any Post meeting and we will ensure it is retired with the dignity it deserves. Contact us for our next scheduled flag retirement ceremony date.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="help2-funeral">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top gold"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon gold-bg">⚰️</div>
+            <h3>Funeral &amp; Memorial Assistance</h3>
+            <p>Post No. 6's Honor Guard is available to perform military funeral honors for veterans in the Chapel Hill area. The Honor Guard provides a dignified ceremony including rifle salute and flag folding and presentation.</p>
+            <p style="margin-top:12px;">The VA also provides burial benefits including burial in a national cemetery, burial allowance, and a Presidential Memorial Certificate. Our VSO can assist families in applying for these benefits. To request Honor Guard services, contact the Post as early as possible.</p>
+            <div style="margin-top:16px;">
+              <a href="mailto:adjutant@alpost6.org" class="btn btn-navy" style="font-size:.83rem;padding:10px 18px;">Request Honor Guard Services</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="help2-membership">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top navy"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon navy-bg">📋</div>
+            <h3>Membership Information</h3>
+            <p>Any honorably discharged veteran who served on active federal service since December 7, 1941 is eligible to join the American Legion. All branches welcome — Army, Navy, Marines, Air Force, Coast Guard, and Space Force.</p>
+            <p style="margin-top:12px;">Annual dues at Post No. 6 are <strong>$60/year</strong> for Legion members. You can join online through MyLegion.org or contact the Post for a paper application. Family members may be eligible for the Auxiliary or SAL.</p>
+            <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap;">
+              <a href="https://mylegion.org/personifyebusiness/Membership/Join/MembershipJoinRegistration/ProductId/134075/RateCode/DMS_1YR_RATE4/sourcecode/OLJOIN045#mylegion" target="_blank" rel="noopener" class="btn btn-gold" style="font-size:.83rem;padding:10px 18px;">Join Online</a>
+              <a href="mailto:adjutant@alpost6.org" class="btn" style="font-size:.83rem;padding:10px 18px;background:var(--gray);color:var(--navy);border:2px solid var(--navy);">Contact for Paper App</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ MUSEUM MODAL ══════════════════════════════════════════ -->
+<div id="museumOverlay" class="org-overlay" role="dialog" aria-modal="true" aria-labelledby="museumModalTitle">
+  <div class="org-dialog">
+    <button class="org-close museum-close" aria-label="Close">&times;</button>
+
+    <div class="org-modal-head">
+      <div class="label">Preserving Military History</div>
+      <h2 class="section-title" id="museumModalTitle">Post 6 Museum</h2>
+      <p class="section-sub">A volunteer-supported museum preserving and displaying military history for the Chapel Hill community and beyond.</p>
+    </div>
+
+    <div class="org-tabs" role="tablist">
+      <button class="org-tab-btn active" role="tab" aria-selected="true" data-museum-group="about">About the Museum</button>
+      <button class="org-tab-btn" role="tab" aria-selected="false" data-museum-group="collections">Collections &amp; Donations</button>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="org-panel active" id="museumGroup-about">
+      <div style="display:flex;gap:0;flex-wrap:wrap;margin-bottom:28px;border:1px solid rgba(0,40,104,.12);border-radius:10px;overflow:hidden;">
+        <button class="org-item-btn active" data-museum="overview">🏛️ Overview</button>
+        <button class="org-item-btn" data-museum="hours">🕐 Hours &amp; Visit</button>
+        <button class="org-item-btn" data-museum="contact">📞 Contact</button>
+      </div>
+
+      <div class="org-detail active" id="museum-overview">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top gold"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon gold-bg">🏛️</div>
+            <h3>About Post 6 Museum</h3>
+            <p>The Post 6 Museum is a volunteer-supported institution dedicated to preserving and displaying the military history of veterans from Chapel Hill and the surrounding area. It serves as a living memorial to those who have served.</p>
+            <p style="margin-top:12px;">Located at the Post No. 6 facility at 3700 NC Hwy 54 West, the museum welcomes public visitors and accepts donations of military items, memorabilia, and artifacts that help tell the story of American service members across generations.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="museum-hours">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top navy"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon navy-bg">🕐</div>
+            <h3>Visiting the Museum</h3>
+            <p>The Post 6 Museum is open to the public. The museum is housed within the Post No. 6 facility and is best visited during Post events and monthly meetings when the building is fully staffed.</p>
+            <p style="margin-top:12px;"><strong>Location:</strong> 3700 NC Highway 54 West, Chapel Hill, NC 27516<br/><strong>Best times to visit:</strong> Monthly Post meetings (2nd Tuesday, starting 5:30 PM) and scheduled Post events.<br/>Contact the museum director to arrange a private visit or group tour.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="museum-contact">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top red"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon red-bg">📞</div>
+            <h3>Museum Contact</h3>
+            <p><strong>Museum Director:</strong> Greg Smith</p>
+            <p style="margin-top:8px;"><a href="mailto:gregsmith@charter.net" style="color:var(--navy);font-weight:700;">gregsmith@charter.net</a><br/><a href="tel:+17708627478" style="color:var(--navy);font-weight:700;">(770) 862-7478</a></p>
+            <p style="margin-top:12px;"><strong>Donation Inquiries:</strong> Contact Ed Gill through the Post adjutant at <a href="mailto:adjutant@alpost6.org" style="color:var(--navy);font-weight:700;">adjutant@alpost6.org</a></p>
+            <div style="margin-top:16px;">
+              <a href="mailto:gregsmith@charter.net" class="btn btn-navy" style="font-size:.83rem;padding:10px 18px;">Email Museum Director</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLLECTIONS & DONATIONS -->
+    <div class="org-panel" id="museumGroup-collections">
+      <div style="display:flex;gap:0;flex-wrap:wrap;margin-bottom:28px;border:1px solid rgba(0,40,104,.12);border-radius:10px;overflow:hidden;">
+        <button class="org-item-btn active" data-museum2="memorabilia">🎖️ Memorabilia</button>
+        <button class="org-item-btn" data-museum2="books">📚 Books &amp; Documents</button>
+        <button class="org-item-btn" data-museum2="models">✈️ Models &amp; Artwork</button>
+        <button class="org-item-btn" data-museum2="donate">🤝 How to Donate</button>
+      </div>
+
+      <div class="org-detail active" id="museum2-memorabilia">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top gold"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon gold-bg">🎖️</div>
+            <h3>Wartime Memorabilia</h3>
+            <p>The museum's memorabilia collection spans multiple conflicts and eras — from World War II through modern campaigns. Items include uniforms, medals, insignia, personal effects, and equipment from veterans who served in every branch of the armed forces.</p>
+            <p style="margin-top:12px;">Each item in the collection carries with it a personal story of service and sacrifice. The museum works to document and preserve the history behind every artifact, ensuring future generations understand the human cost of freedom.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="museum2-books">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top navy"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon navy-bg">📚</div>
+            <h3>Books &amp; Historical Documents</h3>
+            <p>The museum maintains a collection of military history books, unit histories, official documents, photographs, letters, and diaries that provide invaluable primary and secondary source material about military history.</p>
+            <p style="margin-top:12px;">These materials are available for viewing at the museum and support research by historians, students, and family members tracing their veteran ancestors. Contact the museum director to arrange access to specific materials.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="museum2-models">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top red"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon red-bg">✈️</div>
+            <h3>Military Models &amp; Artwork</h3>
+            <p>The museum displays a collection of scale military models — aircraft, ships, vehicles, and equipment — alongside original military artwork and photography that illustrates the history of American military service.</p>
+            <p style="margin-top:12px;">These displays bring military history to life for visitors of all ages, making the museum an excellent educational resource for school groups, scouts, and families interested in America's military heritage.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-detail" id="museum2-donate">
+        <div class="prog-card" style="max-width:680px;">
+          <div class="prog-card-top gold"></div>
+          <div class="prog-card-body">
+            <div class="prog-icon gold-bg">🤝</div>
+            <h3>How to Donate Items</h3>
+            <p>The Post 6 Museum welcomes donations of military memorabilia, books, models, artwork, photographs, documents, and other historically significant items related to military service.</p>
+            <p style="margin-top:12px;">Before donating, please contact Museum Director Greg Smith or Ed Gill through the Post adjutant to discuss the item and ensure it fits the museum's collection needs. All donations are acknowledged and donors are recognized for their contributions to preserving history.</p>
+            <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap;">
+              <a href="mailto:gregsmith@charter.net" class="btn btn-navy" style="font-size:.83rem;padding:10px 18px;">Contact Museum Director</a>
+              <a href="mailto:adjutant@alpost6.org" class="btn" style="font-size:.83rem;padding:10px 18px;background:var(--gray);color:var(--navy);border:2px solid var(--navy);">Email Adjutant</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <!-- ══ ORGANIZATIONS MODAL ══════════════════════════════════ -->
 <div id="orgOverlay" class="org-overlay" role="dialog" aria-modal="true" aria-labelledby="orgModalTitle">
   <div class="org-dialog">
@@ -1945,31 +2336,133 @@
   // Hero fades in immediately
   document.querySelector('#hero .fade-up').classList.add('visible');
 
-  // ── ORGANIZATIONS MODAL ────────────────────────────────────
-  const orgOverlay = document.getElementById('orgOverlay');
-  const orgClose   = document.getElementById('orgClose');
-
-  function openOrg() {
-    orgOverlay.classList.add('open');
+  // ── GENERIC MODAL HELPERS ─────────────────────────────────
+  function openModal(overlay) {
+    overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
-  function closeOrg() {
-    orgOverlay.classList.remove('open');
+  function closeModal(overlay) {
+    overlay.classList.remove('open');
     document.body.style.overflow = '';
   }
+  function bindModalClose(overlay, closeBtn) {
+    closeBtn.addEventListener('click', () => closeModal(overlay));
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(overlay); });
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.org-overlay.open').forEach(o => closeModal(o));
+    }
+  });
+  function closeMobileMenu() {
+    hamburger.classList.remove('open');
+    mobileNav.classList.remove('open');
+  }
 
-  document.querySelectorAll('.org-trigger').forEach(el => {
-    el.addEventListener('click', e => {
-      e.preventDefault();
-      hamburger.classList.remove('open');
-      mobileNav.classList.remove('open');
-      openOrg();
+  // ── OUR HEROES MODAL ──────────────────────────────────────
+  const heroesOverlay = document.getElementById('heroesOverlay');
+  bindModalClose(heroesOverlay, heroesOverlay.querySelector('.heroes-close'));
+  document.querySelectorAll('.heroes-trigger').forEach(el => {
+    el.addEventListener('click', e => { e.preventDefault(); closeMobileMenu(); openModal(heroesOverlay); });
+  });
+  // heroes top tabs
+  document.querySelectorAll('[data-heroes-group]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      heroesOverlay.querySelectorAll('[data-heroes-group]').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+      btn.classList.add('active'); btn.setAttribute('aria-selected','true');
+      heroesOverlay.querySelectorAll('.org-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('heroesGroup-' + btn.dataset.heroesGroup).classList.add('active');
+    });
+  });
+  // heroes item buttons
+  heroesOverlay.querySelectorAll('[data-hero]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const group = btn.closest('.org-panel');
+      group.querySelectorAll('.org-item-btn').forEach(b => b.classList.remove('active'));
+      group.querySelectorAll('.org-detail').forEach(d => d.classList.remove('active'));
+      btn.classList.add('active');
+      group.querySelector('#hero-' + btn.dataset.hero).classList.add('active');
     });
   });
 
-  orgClose.addEventListener('click', closeOrg);
-  orgOverlay.addEventListener('click', e => { if (e.target === orgOverlay) closeOrg(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeOrg(); });
+  // ── HELP MODAL ────────────────────────────────────────────
+  const helpOverlay = document.getElementById('helpOverlay');
+  bindModalClose(helpOverlay, helpOverlay.querySelector('.help-close'));
+  document.querySelectorAll('.help-trigger').forEach(el => {
+    el.addEventListener('click', e => { e.preventDefault(); closeMobileMenu(); openModal(helpOverlay); });
+  });
+  // help top tabs
+  document.querySelectorAll('[data-help-group]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      helpOverlay.querySelectorAll('[data-help-group]').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+      btn.classList.add('active'); btn.setAttribute('aria-selected','true');
+      helpOverlay.querySelectorAll('.org-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('helpGroup-' + btn.dataset.helpGroup).classList.add('active');
+    });
+  });
+  // help tab 1 item buttons
+  helpOverlay.querySelectorAll('[data-help]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const group = btn.closest('.org-panel');
+      group.querySelectorAll('[data-help]').forEach(b => b.classList.remove('active'));
+      group.querySelectorAll('.org-detail').forEach(d => d.classList.remove('active'));
+      btn.classList.add('active');
+      group.querySelector('#help-' + btn.dataset.help).classList.add('active');
+    });
+  });
+  // help tab 2 item buttons
+  helpOverlay.querySelectorAll('[data-help2]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const group = btn.closest('.org-panel');
+      group.querySelectorAll('[data-help2]').forEach(b => b.classList.remove('active'));
+      group.querySelectorAll('.org-detail').forEach(d => d.classList.remove('active'));
+      btn.classList.add('active');
+      group.querySelector('#help2-' + btn.dataset.help2).classList.add('active');
+    });
+  });
+
+  // ── MUSEUM MODAL ──────────────────────────────────────────
+  const museumOverlay = document.getElementById('museumOverlay');
+  bindModalClose(museumOverlay, museumOverlay.querySelector('.museum-close'));
+  document.querySelectorAll('.museum-trigger').forEach(el => {
+    el.addEventListener('click', e => { e.preventDefault(); closeMobileMenu(); openModal(museumOverlay); });
+  });
+  // museum top tabs
+  document.querySelectorAll('[data-museum-group]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      museumOverlay.querySelectorAll('[data-museum-group]').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+      btn.classList.add('active'); btn.setAttribute('aria-selected','true');
+      museumOverlay.querySelectorAll('.org-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('museumGroup-' + btn.dataset.museumGroup).classList.add('active');
+    });
+  });
+  // museum tab 1 item buttons
+  museumOverlay.querySelectorAll('[data-museum]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const group = btn.closest('.org-panel');
+      group.querySelectorAll('[data-museum]').forEach(b => b.classList.remove('active'));
+      group.querySelectorAll('.org-detail').forEach(d => d.classList.remove('active'));
+      btn.classList.add('active');
+      group.querySelector('#museum-' + btn.dataset.museum).classList.add('active');
+    });
+  });
+  // museum tab 2 item buttons
+  museumOverlay.querySelectorAll('[data-museum2]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const group = btn.closest('.org-panel');
+      group.querySelectorAll('[data-museum2]').forEach(b => b.classList.remove('active'));
+      group.querySelectorAll('.org-detail').forEach(d => d.classList.remove('active'));
+      btn.classList.add('active');
+      group.querySelector('#museum2-' + btn.dataset.museum2).classList.add('active');
+    });
+  });
+
+  // ── ORGANIZATIONS MODAL ────────────────────────────────────
+  const orgOverlay = document.getElementById('orgOverlay');
+  bindModalClose(orgOverlay, document.getElementById('orgClose'));
+  document.querySelectorAll('.org-trigger').forEach(el => {
+    el.addEventListener('click', e => { e.preventDefault(); closeMobileMenu(); openModal(orgOverlay); });
+  });
 
   // Top-level group tabs
   document.querySelectorAll('.org-tab-btn').forEach(btn => {
